@@ -1,0 +1,2294 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوابة الإرشاد الأكاديمي | جامعة الملك سعود</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ===== KSU COLOR SYSTEM — أبيض + سماوي ===== */
+:root {
+  --ksu-green:      #0077b6;
+  --ksu-green-dark: #005a8e;
+  --ksu-green-light:#e0f4ff;
+  --ksu-blue:       #0096c7;
+  --ksu-blue-light: #caf0f8;
+  --ksu-gold:       #90e0ef;
+  --white:          #ffffff;
+  --gray-50:        #f0f8ff;
+  --gray-100:       #e9f5fb;
+  --gray-200:       #d6eaf8;
+  --gray-300:       #aed6f1;
+  --gray-400:       #85c1e9;
+  --gray-500:       #5dade2;
+  --gray-600:       #2e86c1;
+  --gray-700:       #1a5276;
+  --gray-800:       #154360;
+  --gray-900:       #0d2137;
+  --danger:         #c62828;
+  --danger-light:   #ffebee;
+  --warning:        #e65100;
+  --warning-light:  #fff3e0;
+  --success:        #1b7a34;
+  --success-light:  #e8f5e9;
+  --info:           #0077b6;
+  --info-light:     #e0f4ff;
+  --border:         #aed6f1;
+  --shadow:         0 1px 3px rgba(0,119,182,0.1), 0 1px 2px rgba(0,119,182,0.07);
+  --shadow-md:      0 4px 6px rgba(0,119,182,0.09), 0 2px 4px rgba(0,119,182,0.06);
+  --shadow-lg:      0 10px 20px rgba(0,119,182,0.13), 0 4px 8px rgba(0,119,182,0.08);
+  --font:           'IBM Plex Sans Arabic', sans-serif;
+  --mono:           'JetBrains Mono', monospace;
+  --radius:         6px;
+  --radius-lg:      10px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: var(--font);
+  background: #f0f8ff;
+  color: #0d2137;
+  direction: rtl;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ===== TOP HEADER (KSU STYLE) ===== */
+.ksu-topbar {
+  background: var(--white);
+  border-bottom: 3px solid var(--ksu-green);
+  padding: 0 24px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: var(--shadow);
+}
+
+.ksu-logo-area {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ksu-logo-emblem {
+  width: 52px;
+  height: 52px;
+  background: var(--ksu-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.ksu-logo-text { line-height: 1.3; }
+.ksu-logo-ar { font-size: 14px; font-weight: 700; color: var(--ksu-green); }
+.ksu-logo-en { font-size: 11px; color: var(--gray-500); font-weight: 500; }
+
+.ksu-portal-name {
+  font-size: 13px;
+  color: var(--gray-600);
+  border-right: 2px solid var(--gray-300);
+  padding-right: 16px;
+  margin-right: 16px;
+}
+
+.ksu-advisor-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--gray-700);
+}
+
+.ksu-advisor-avatar {
+  width: 36px; height: 36px;
+  background: var(--ksu-green);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.ksu-topbar-actions { display:flex; gap:8px; align-items:center; }
+.ksu-icon-btn {
+  width:34px; height:34px;
+  background: var(--gray-100);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex; align-items:center; justify-content:center;
+  cursor: pointer; font-size: 16px;
+  color: var(--gray-600);
+  transition: all 0.15s;
+  position: relative;
+}
+.ksu-icon-btn:hover { background: var(--ksu-green-light); border-color: var(--ksu-green); color: var(--ksu-green); }
+.ksu-notif-dot {
+  position:absolute; top:-3px; right:-3px;
+  width:10px; height:10px;
+  background: var(--danger);
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+/* ===== NAV BAR (SECONDARY) ===== */
+.ksu-navbar {
+  background: var(--ksu-green);
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.ksu-navbar::-webkit-scrollbar { display:none; }
+
+.ksu-nav-link {
+  padding: 12px 18px;
+  color: rgba(255,255,255,0.82);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ksu-nav-link:hover { color: white; background: rgba(255,255,255,0.08); }
+.ksu-nav-link.active { color: white; border-bottom-color: #FFD700; font-weight: 700; background: rgba(255,255,255,0.1); }
+
+.ksu-nav-badge {
+  background: var(--danger);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 10px;
+  font-family: var(--mono);
+}
+.ksu-nav-badge.warn { background: #e65100; }
+
+/* ===== LAYOUT ===== */
+.layout { display: flex; min-height: calc(100vh - 110px); }
+
+/* SIDEBAR */
+.sidebar {
+  width: 240px;
+  background: var(--white);
+  border-left: 1px solid var(--border);
+  flex-shrink: 0;
+  position: sticky;
+  top: 110px;
+  height: calc(100vh - 110px);
+  overflow-y: auto;
+}
+
+.sidebar-section { padding: 12px 0; border-bottom: 1px solid var(--gray-100); }
+.sidebar-section-title {
+  padding: 8px 16px 4px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  font-size: 13px;
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: all 0.12s;
+  border-right: 3px solid transparent;
+}
+.sidebar-item:hover { background: var(--gray-50); color: var(--ksu-green); }
+.sidebar-item.active { background: var(--ksu-green-light); color: var(--ksu-green); font-weight: 600; border-right-color: var(--ksu-green); }
+.sidebar-item-icon { font-size: 15px; width: 20px; text-align: center; }
+.sidebar-badge {
+  margin-right: auto;
+  background: var(--danger);
+  color: white;
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 10px;
+  font-family: var(--mono);
+}
+
+.sidebar-advisor-card {
+  margin: 12px;
+  padding: 12px;
+  background: var(--ksu-green-light);
+  border: 1px solid rgba(0,102,51,0.2);
+  border-radius: var(--radius-lg);
+}
+.sidebar-advisor-name { font-size: 13px; font-weight: 700; color: var(--ksu-green-dark); }
+.sidebar-advisor-role { font-size: 11px; color: var(--gray-600); margin-top: 2px; }
+.sidebar-stat { margin-top: 8px; display:flex; justify-content:space-between; font-size:11px; color:var(--gray-600); }
+.sidebar-stat strong { color: var(--ksu-green); font-family: var(--mono); }
+
+/* MAIN */
+.main { flex: 1; min-width: 0; }
+
+/* PAGE BREADCRUMB */
+.breadcrumb {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 24px;
+  font-size: 12px;
+  color: var(--gray-600);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.breadcrumb a { color: var(--ksu-blue); cursor: pointer; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb-sep { color: var(--gray-400); }
+
+/* PAGE CONTENT */
+.page { display: none; padding: 20px 24px; animation: fadeIn 0.2s ease; }
+.page.active { display: block; }
+@keyframes fadeIn { from { opacity:0; transform: translateY(6px); } to { opacity:1; transform:translateY(0); } }
+
+/* PAGE TITLE */
+.page-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.page-title { font-size: 18px; font-weight: 700; color: var(--ksu-green-dark); display:flex; align-items:center; gap:8px; }
+.page-subtitle { font-size: 12px; color: var(--gray-500); margin-top: 2px; }
+
+/* ===== COMPONENTS ===== */
+
+/* STAT CARDS */
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 20px; }
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  box-shadow: var(--shadow);
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.stat-icon-box {
+  width: 46px; height: 46px;
+  border-radius: var(--radius);
+  display: flex; align-items:center; justify-content:center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.stat-icon-box.danger { background: var(--danger-light); }
+.stat-icon-box.warning { background: var(--warning-light); }
+.stat-icon-box.success { background: var(--success-light); }
+.stat-icon-box.info { background: var(--info-light); }
+.stat-value { font-size: 28px; font-weight: 700; font-family: var(--mono); line-height: 1; }
+.stat-value.danger { color: var(--danger); }
+.stat-value.warning { color: var(--warning); }
+.stat-value.success { color: var(--success); }
+.stat-value.info { color: var(--ksu-blue); }
+.stat-label { font-size: 12px; color: var(--gray-600); margin-top: 3px; }
+.stat-sub { font-size: 11px; color: var(--gray-400); margin-top: 2px; }
+
+/* PANEL */
+.panel {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.panel-header {
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--gray-100);
+  display: flex; align-items:center; justify-content:space-between;
+  background: var(--gray-50);
+}
+.panel-title { font-size: 14px; font-weight: 700; color: var(--gray-800); display:flex; align-items:center; gap:8px; }
+.panel-action { font-size: 12px; color: var(--ksu-blue); cursor: pointer; font-weight: 600; }
+.panel-action:hover { text-decoration: underline; }
+
+/* TABLE */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+table th {
+  padding: 10px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gray-600);
+  text-align: right;
+  background: var(--gray-50);
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+table td {
+  padding: 11px 14px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--gray-100);
+  vertical-align: middle;
+}
+table tr:last-child td { border-bottom: none; }
+table tr:hover td { background: var(--gray-50); }
+table td a { color: var(--ksu-blue); cursor: pointer; font-weight: 600; text-decoration: none; }
+table td a:hover { text-decoration: underline; }
+
+/* BADGES */
+.badge {
+  display: inline-flex; align-items:center; gap:4px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.badge-danger  { background: var(--danger-light);  color: var(--danger);  border:1px solid rgba(198,40,40,0.25); }
+.badge-warning { background: var(--warning-light); color: var(--warning); border:1px solid rgba(230,81,0,0.25); }
+.badge-success { background: var(--success-light); color: var(--success); border:1px solid rgba(46,125,50,0.25); }
+.badge-info    { background: var(--info-light);    color: var(--info);    border:1px solid rgba(1,87,155,0.25); }
+.badge-gray    { background: var(--gray-100);      color: var(--gray-600); border:1px solid var(--border); }
+
+/* GPA CHIP */
+.gpa-chip {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 2px 10px;
+  border-radius: 20px;
+  display: inline-block;
+}
+.gpa-high { background: var(--success-light); color: var(--success); }
+.gpa-med  { background: var(--warning-light); color: var(--warning); }
+.gpa-low  { background: var(--danger-light);  color: var(--danger); }
+
+/* RISK BAR */
+.risk-bar-wrap { display:flex; align-items:center; gap:6px; min-width:100px; }
+.risk-track { flex:1; height:5px; background:var(--gray-200); border-radius:3px; overflow:hidden; }
+.risk-fill { height:100%; border-radius:3px; }
+
+/* ALERT ITEM */
+.alert-item {
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--gray-100);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.alert-item:last-child { border-bottom: none; }
+.alert-dot { width:9px; height:9px; border-radius:50%; flex-shrink:0; margin-top:5px; }
+.alert-dot.red    { background:var(--danger);  box-shadow:0 0 0 3px rgba(198,40,40,0.15); }
+.alert-dot.orange { background:var(--warning); box-shadow:0 0 0 3px rgba(230,81,0,0.15); }
+.alert-dot.blue   { background:var(--info);    box-shadow:0 0 0 3px rgba(1,87,155,0.15); }
+.alert-text { font-size:13px; line-height:1.5; color:var(--gray-800); }
+.alert-meta { font-size:11px; color:var(--gray-500); margin-top:3px; font-family:var(--mono); }
+
+/* BUTTONS */
+.btn {
+  padding: 7px 16px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-family: var(--font);
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid transparent;
+  transition: all 0.15s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn-primary { background: var(--ksu-green); color: white; border-color: var(--ksu-green-dark); }
+.btn-primary:hover { background: var(--ksu-green-dark); }
+.btn-blue { background: var(--ksu-blue); color: white; border-color: #0d47a1; }
+.btn-blue:hover { background: #0d47a1; }
+.btn-danger { background: var(--danger-light); color: var(--danger); border-color: rgba(198,40,40,0.3); }
+.btn-danger:hover { background: #ffcdd2; }
+.btn-warning { background: var(--warning-light); color: var(--warning); border-color: rgba(230,81,0,0.3); }
+.btn-warning:hover { background: #ffe0b2; }
+.btn-ghost { background: var(--white); color: var(--gray-700); border-color: var(--border); }
+.btn-ghost:hover { border-color: var(--ksu-green); color: var(--ksu-green); }
+.btn-sm { padding: 4px 10px; font-size: 12px; }
+
+/* FORM */
+.form-group { margin-bottom: 14px; }
+.form-label { font-size: 12px; color: var(--gray-700); font-weight: 600; margin-bottom: 5px; display:block; }
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 9px 12px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--gray-900);
+  font-size: 13px;
+  font-family: var(--font);
+  direction: rtl;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  outline: none;
+  border-color: var(--ksu-green);
+  box-shadow: 0 0 0 3px rgba(0,102,51,0.12);
+}
+.form-textarea { resize: vertical; min-height: 90px; }
+.form-select option { background: white; }
+
+/* TABS */
+.tabs { display:flex; border-bottom: 2px solid var(--border); margin-bottom: 16px; }
+.tab-btn {
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-500);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.tab-btn.active { color: var(--ksu-green); border-bottom-color: var(--ksu-green); }
+.tab-btn:hover:not(.active) { color: var(--gray-700); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* MODAL */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 500;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  width: 900px;
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+.modal-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--ksu-green);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.modal-title { font-size: 15px; font-weight: 700; display:flex; align-items:center; gap:8px; }
+.modal-close {
+  width: 28px; height: 28px;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 18px;
+  color: white;
+  display: flex; align-items:center; justify-content:center;
+}
+.modal-close:hover { background: rgba(255,255,255,0.35); }
+.modal-body { padding: 20px; }
+
+/* STUDENT PROFILE HEADER */
+.student-profile-header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--ksu-green-light);
+  border: 1px solid rgba(0,102,51,0.15);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.student-avatar {
+  width: 54px; height: 54px;
+  background: var(--ksu-green);
+  color: white;
+  border-radius: 10px;
+  display: flex; align-items:center; justify-content:center;
+  font-size: 20px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.student-name { font-size: 17px; font-weight: 700; color: var(--ksu-green-dark); }
+.student-id { font-family: var(--mono); font-size: 13px; color: var(--ksu-blue); margin-top: 2px; }
+.student-meta { font-size: 12px; color: var(--gray-600); margin-top: 5px; display:flex; gap:12px; flex-wrap:wrap; }
+.student-meta span { display:flex; align-items:center; gap:4px; }
+
+/* MINI STATS */
+.mini-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:16px; }
+.mini-stat {
+  background: var(--gray-50);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  text-align: center;
+}
+.mini-stat-val { font-family:var(--mono); font-size:22px; font-weight:700; }
+.mini-stat-lbl { font-size:11px; color:var(--gray-500); margin-top:2px; }
+
+/* SAD PLAN GRID (Study Plan) */
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+.plan-level-col {
+  background: var(--gray-50);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.plan-level-header {
+  background: var(--ksu-green);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 8px;
+  text-align: center;
+}
+.plan-course-item {
+  font-size: 10px;
+  padding: 5px 6px;
+  margin: 3px;
+  border-radius: 4px;
+  text-align: center;
+  font-family: var(--mono);
+  font-weight: 600;
+  line-height: 1.3;
+}
+.plan-done    { background: #e8f5e9; color: #2e7d32; border: 1px solid rgba(46,125,50,0.3); }
+.plan-failed  { background: #ffebee; color: #c62828; border: 1px solid rgba(198,40,40,0.3); }
+.plan-current { background: #e3f2fd; color: #1565c0; border: 1px solid rgba(21,101,192,0.3); }
+.plan-future  { background: #f8f9fa; color: #9e9e9e; border: 1px solid #e0e0e0; }
+
+/* PLAN LEGEND */
+.plan-legend { display:flex; gap:14px; flex-wrap:wrap; font-size:11px; color:var(--gray-600); margin-bottom:10px; }
+.plan-legend-item { display:flex; align-items:center; gap:4px; }
+.plan-legend-dot { width:12px; height:12px; border-radius:3px; }
+
+/* APPOINTMENT CARD */
+.appt-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--gray-100);
+}
+.appt-card:last-child { border-bottom: none; }
+.appt-time-box {
+  min-width: 58px;
+  text-align: center;
+  background: var(--ksu-green-light);
+  border: 1px solid rgba(0,102,51,0.15);
+  border-radius: var(--radius);
+  padding: 8px 6px;
+}
+.appt-time-val { font-family:var(--mono); font-size: 16px; font-weight: 700; color: var(--ksu-green); }
+.appt-time-day { font-size: 10px; color: var(--gray-500); margin-top: 1px; }
+.appt-detail { flex: 1; }
+.appt-name { font-size: 13px; font-weight: 700; color: var(--gray-900); }
+.appt-desc { font-size: 12px; color: var(--gray-600); margin-top: 3px; }
+.appt-actions { display:flex; gap:6px; margin-top:8px; }
+
+/* AI BOX */
+.ai-box {
+  background: linear-gradient(135deg, #f0f9f0, #e8f4fd);
+  border: 1px solid rgba(0,102,51,0.2);
+  border-right: 3px solid var(--ksu-green);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-bottom: 16px;
+}
+.ai-box-title { font-size: 12px; font-weight: 700; color: var(--ksu-green); margin-bottom: 6px; display:flex; align-items:center; gap:5px; }
+.ai-box-text { font-size: 12.5px; line-height: 1.7; color: var(--gray-700); }
+
+/* CHATBOT */
+.chatbot-fab {
+  position: fixed; bottom: 24px; left: 24px;
+  width: 50px; height: 50px;
+  background: var(--ksu-green);
+  border-radius: 50%;
+  display: flex; align-items:center; justify-content:center;
+  font-size: 22px;
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  z-index: 300;
+  border: 2px solid white;
+}
+.chatbot-window {
+  position: fixed; bottom: 82px; left: 24px;
+  width: 320px; height: 420px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  display: none; flex-direction:column;
+  z-index: 300;
+  overflow: hidden;
+}
+.chatbot-window.open { display: flex; }
+.chat-head {
+  background: var(--ksu-green);
+  color: white;
+  padding: 12px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.chat-body { flex:1; overflow-y:auto; padding:12px; display:flex; flex-direction:column; gap:8px; }
+.chat-bubble { padding: 9px 12px; border-radius: 8px; max-width: 88%; font-size: 12px; line-height: 1.5; }
+.chat-bubble.bot { background: var(--gray-100); border: 1px solid var(--border); align-self:flex-start; }
+.chat-bubble.user { background: var(--ksu-green); color: white; align-self:flex-end; }
+.chat-foot { padding: 10px; border-top: 1px solid var(--border); display:flex; gap:6px; background:var(--gray-50); }
+
+/* TOAST */
+.toast {
+  position: fixed; bottom: 24px; left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: var(--ksu-green); color: white;
+  padding: 11px 22px;
+  border-radius: var(--radius-lg);
+  font-weight: 700; font-size: 13px;
+  z-index: 999;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+.toast.error { background: var(--danger); }
+
+/* GRID HELPERS */
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+.mb16 { margin-bottom:16px; }
+.flex { display:flex; }
+.flex-between { display:flex; justify-content:space-between; align-items:center; }
+.gap8 { gap:8px; }
+.gap12 { gap:12px; }
+
+/* INBOX */
+.inbox-wrap { display:flex; height: 540px; border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; }
+.inbox-list { width:260px; border-left:1px solid var(--border); overflow-y:auto; flex-shrink:0; }
+.inbox-msg-item {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--gray-100);
+  cursor: pointer;
+  border-right: 3px solid transparent;
+  transition: all 0.12s;
+}
+.inbox-msg-item:hover { background: var(--gray-50); }
+.inbox-msg-item.active { background: var(--ksu-green-light); border-right-color: var(--ksu-green); }
+.inbox-msg-from { font-size: 13px; font-weight: 700; color: var(--gray-900); }
+.inbox-msg-subject { font-size: 12px; color: var(--gray-600); margin-top: 2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.inbox-msg-time { font-size: 10px; color: var(--gray-400); font-family: var(--mono); }
+.inbox-detail { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+.inbox-detail-header { padding: 13px 16px; border-bottom: 1px solid var(--border); background: var(--gray-50); }
+.inbox-detail-header-name { font-size: 14px; font-weight: 700; }
+.inbox-detail-header-subject { font-size: 12px; color: var(--gray-600); margin-top: 2px; }
+.inbox-messages { flex:1; overflow-y:auto; padding:14px; display:flex; flex-direction:column; gap:10px; }
+.inbox-reply-bar { padding: 12px; border-top: 1px solid var(--border); background: var(--gray-50); }
+.msg-bubble { padding: 11px 14px; border-radius: 8px; max-width: 85%; font-size:13px; line-height:1.6; }
+.msg-bubble.student { background: var(--gray-100); border: 1px solid var(--border); align-self:flex-start; }
+.msg-bubble.advisor { background: var(--ksu-green-light); border: 1px solid rgba(0,102,51,0.2); align-self:flex-end; }
+.msg-meta { font-size:10px; color:var(--gray-400); margin-top:4px; font-family:var(--mono); }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width:5px; height:5px; }
+::-webkit-scrollbar-track { background: var(--gray-50); }
+::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius:3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gray-400); }
+
+/* PULSE */
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.7;transform:scale(1.2)} }
+.pulse { animation: pulse 2s infinite; }
+
+/* SEPARATOR LINE */
+.divider { height:1px; background: var(--gray-100); margin: 16px 0; }
+
+.info-row { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; }
+</style>
+</head>
+<body>
+
+<!-- ===== KSU TOP HEADER ===== -->
+<header class="ksu-topbar">
+  <div class="ksu-logo-area">
+    <div class="ksu-logo-emblem">🎓</div>
+    <div class="ksu-logo-text">
+      <div class="ksu-logo-ar">جامعة الملك سعود</div>
+      <div class="ksu-logo-en">King Saud University</div>
+    </div>
+    <div class="ksu-portal-name">بوابة الإرشاد الأكاديمي</div>
+  </div>
+
+  <div style="display:flex; align-items:center; gap:14px;">
+    <div class="ksu-advisor-info">
+      <div class="ksu-advisor-avatar">ع</div>
+      <div>
+        <div style="font-weight:700; font-size:13px;">د. عبدالعزيز المطيري</div>
+        <div style="font-size:11px; color:var(--gray-500)">مرشد أكاديمي — هندسة الحاسب</div>
+      </div>
+    </div>
+    <div class="ksu-topbar-actions">
+      <div class="ksu-icon-btn" onclick="showPage('inbox')" title="الرسائل">
+        📩<div class="ksu-notif-dot"></div>
+      </div>
+      <div class="ksu-icon-btn" onclick="showPage('alerts')" title="التنبيهات">
+        🔔<div class="ksu-notif-dot"></div>
+      </div>
+      <div class="ksu-icon-btn" title="الإعدادات">⚙️</div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== NAVIGATION BAR ===== -->
+<nav class="ksu-navbar">
+  <div class="ksu-nav-link active" onclick="showPage('dashboard')">📊 الرئيسية</div>
+  <div class="ksu-nav-link" onclick="showPage('students')">👥 طلاب الإرشاد</div>
+  <div class="ksu-nav-link" onclick="showPage('alerts')">⚠️ التنبيهات <span class="ksu-nav-badge" id="nav-alert-count">0</span></div>
+  <div class="ksu-nav-link" onclick="showPage('appointments')">📅 المواعيد <span class="ksu-nav-badge warn">3</span></div>
+  <div class="ksu-nav-link" onclick="showPage('registration')">📋 الحذف والتسجيل</div>
+  <div class="ksu-nav-link" onclick="showPage('send-msg')">📨 إرسال للطلاب</div>
+  <div class="ksu-nav-link" onclick="showPage('inbox')">📩 الرسائل الواردة <span class="ksu-nav-badge warn">8</span></div>
+</nav>
+
+<!-- ===== MAIN LAYOUT ===== -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-advisor-card">
+      <div class="sidebar-advisor-name">د. عبدالعزيز المطيري</div>
+      <div class="sidebar-advisor-role">مرشد أكاديمي — قسم هندسة الحاسب</div>
+      <div class="sidebar-stat">
+        <span>إجمالي الطلاب</span>
+        <strong>55</strong>
+      </div>
+      <div class="sidebar-stat">
+        <span>الفصل الدراسي</span>
+        <strong>الثاني 1447</strong>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">الرئيسية</div>
+      <div class="sidebar-item active" onclick="showPage('dashboard')">
+        <span class="sidebar-item-icon">📊</span> لوحة التحكم
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">إدارة الطلاب</div>
+      <div class="sidebar-item" onclick="showPage('students')">
+        <span class="sidebar-item-icon">👥</span> قائمة الطلاب
+      </div>
+      <div class="sidebar-item" onclick="showPage('alerts')">
+        <span class="sidebar-item-icon">⚠️</span> التنبيهات الحرجة
+        <span class="sidebar-badge" id="sidebar-alert-count">0</span>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">الأدوات الأكاديمية</div>
+      <div class="sidebar-item" onclick="showPage('appointments')">
+        <span class="sidebar-item-icon">📅</span> المواعيد
+        <span class="sidebar-badge" style="background:var(--warning)">3</span>
+      </div>
+      <div class="sidebar-item" onclick="showPage('registration')">
+        <span class="sidebar-item-icon">📋</span> الحذف والتسجيل
+      </div>
+      <div class="sidebar-item" onclick="showPage('send-msg')">
+        <span class="sidebar-item-icon">📨</span> إرسال للطلاب
+      </div>
+      <div class="sidebar-item" onclick="showPage('inbox')">
+        <span class="sidebar-item-icon">📩</span> الرسائل الواردة
+        <span class="sidebar-badge" style="background:var(--warning)">8</span>
+      </div>
+    </div>
+
+    <div style="padding:12px; margin-top:auto; border-top:1px solid var(--gray-100);">
+      <div style="display:flex; align-items:center; gap:6px; font-size:11px; color:var(--success);">
+        <span style="width:7px;height:7px;background:var(--success);border-radius:50%;display:inline-block;"></span>
+        النظام متصل — الترم الثاني 1447هـ
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb" id="breadcrumb">
+      <a onclick="showPage('dashboard')">الرئيسية</a>
+      <span class="breadcrumb-sep">›</span>
+      <span id="breadcrumb-current">لوحة التحكم</span>
+    </div>
+
+    <!-- ==================== DASHBOARD ==================== -->
+    <div class="page active" id="page-dashboard">
+      <div class="page-title-bar">
+        <div>
+          <div class="page-title">📊 لوحة التحكم — نظرة استباقية شاملة</div>
+          <div class="page-subtitle">الفصل الدراسي الثاني 1446/1447هـ · قسم هندسة الحاسب والمعلومات</div>
+        </div>
+        <button class="btn btn-primary" onclick="showPage('send-msg')">📨 إرسال إشعار</button>
+      </div>
+
+      <!-- STAT CARDS -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon-box danger">🚨</div>
+          <div>
+            <div class="stat-value danger" id="dash-danger">0</div>
+            <div class="stat-label">في خطر أكاديمي</div>
+            <div class="stat-sub">غياب &gt;15% أو GPA &lt;2.0</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-box warning">⚠️</div>
+          <div>
+            <div class="stat-value warning" id="dash-warn">0</div>
+            <div class="stat-label">تحت الملاحظة</div>
+            <div class="stat-sub">تدنٍّ ملحوظ في الأداء</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-box success">✅</div>
+          <div>
+            <div class="stat-value success" id="dash-ok">0</div>
+            <div class="stat-label">أداء ممتاز</div>
+            <div class="stat-sub">GPA أعلى من 4.5</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-box info">👥</div>
+          <div>
+            <div class="stat-value info">55</div>
+            <div class="stat-label">إجمالي الطلاب</div>
+            <div class="stat-sub">هندسة الحاسب والمعلومات</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <!-- CRITICAL ALERTS -->
+        <div class="panel">
+          <div class="panel-header">
+            <div class="panel-title">🚨 حالات تستدعي تدخلاً فورياً</div>
+            <span class="panel-action" onclick="showPage('alerts')">عرض الكل</span>
+          </div>
+          <div id="dash-alerts-list">
+            <div style="padding:24px;text-align:center;color:var(--gray-400);">جارٍ التحميل...</div>
+          </div>
+        </div>
+
+        <!-- TODAY APPOINTMENTS -->
+        <div class="panel">
+          <div class="panel-header">
+            <div class="panel-title">📅 مواعيد اليوم</div>
+            <span class="panel-action" onclick="showPage('appointments')">إدارة المواعيد</span>
+          </div>
+          <div class="appt-card">
+            <div class="appt-time-box">
+              <div class="appt-time-val">09:00</div>
+              <div class="appt-time-day">الأحد</div>
+            </div>
+            <div class="appt-detail">
+              <div class="appt-name">🔴 أحمد محمد العتيبي</div>
+              <div class="appt-desc">جلسة طارئة — مراجعة الإنذار الأكاديمي (GPA: 1.72)</div>
+              <div class="appt-actions">
+                <button class="btn btn-sm btn-primary" onclick="showToast('تم تأكيد الموعد ✓')">✓ تأكيد</button>
+                <button class="btn btn-sm btn-ghost" onclick="openStudentModal('441102345')">📋 الملف</button>
+              </div>
+            </div>
+          </div>
+          <div class="appt-card">
+            <div class="appt-time-box">
+              <div class="appt-time-val">11:30</div>
+              <div class="appt-time-day">الأحد</div>
+            </div>
+            <div class="appt-detail">
+              <div class="appt-name">🟡 خالد عبدالله الدوسري</div>
+              <div class="appt-desc">مراجعة خطة دراسية — تعثر متطلبات المستوى الرابع</div>
+              <div class="appt-actions">
+                <button class="btn btn-sm btn-primary" onclick="showToast('تم تأكيد الموعد ✓')">✓ تأكيد</button>
+                <button class="btn btn-sm btn-ghost" onclick="openStudentModal('441105678')">📋 الملف</button>
+              </div>
+            </div>
+          </div>
+          <div class="appt-card">
+            <div class="appt-time-box">
+              <div class="appt-time-val">02:00</div>
+              <div class="appt-time-day">الأحد</div>
+            </div>
+            <div class="appt-detail">
+              <div class="appt-name">🟢 هشام محمد الرشيد</div>
+              <div class="appt-desc">استشارة تخرج — توجيه مشروع التخرج HAL 493</div>
+              <div class="appt-actions">
+                <button class="btn btn-sm btn-primary" onclick="showToast('تم تأكيد الموعد ✓')">✓ تأكيد</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAILED COURSES + DISTRIBUTION -->
+      <div class="grid-2">
+        <div class="panel">
+          <div class="panel-header">
+            <div class="panel-title">📉 أكثر المقررات تعثراً هذا الفصل</div>
+          </div>
+          <div style="padding:0;">
+            <div id="failed-courses-list"></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">
+            <div class="panel-title">📊 توزيع مستويات الأداء</div>
+          </div>
+          <div style="padding:18px;" id="perf-distribution"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== STUDENTS ==================== -->
+    <div class="page" id="page-students">
+      <div class="page-title-bar">
+        <div>
+          <div class="page-title">👥 قائمة طلاب الإرشاد الأكاديمي</div>
+          <div class="page-subtitle">55 طالب — قسم هندسة الحاسب والمعلومات</div>
+        </div>
+        <button class="btn btn-primary" onclick="showPage('send-msg')">📨 رسالة جماعية</button>
+      </div>
+
+      <div class="panel mb16" style="padding:14px; display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+        <input class="form-input" style="max-width:260px;" placeholder="🔍 ابحث بالاسم أو الرقم الجامعي..." oninput="searchStudents(this.value)" id="search-input">
+        <select class="form-select" style="max-width:170px;" onchange="filterByRisk(this.value)">
+          <option value="">كل الحالات</option>
+          <option value="danger">🚨 خطر أكاديمي</option>
+          <option value="warn">⚠️ تحذير</option>
+          <option value="ok">🔵 مستقر</option>
+          <option value="great">🟢 ممتاز</option>
+        </select>
+        <select class="form-select" style="max-width:140px;" onchange="filterByLevel(this.value)">
+          <option value="">كل المستويات</option>
+          <option value="1">المستوى 1</option>
+          <option value="2">المستوى 2</option>
+          <option value="3">المستوى 3</option>
+          <option value="4">المستوى 4</option>
+          <option value="5">المستوى 5</option>
+          <option value="6">المستوى 6</option>
+          <option value="7">المستوى 7</option>
+          <option value="8">المستوى 8</option>
+          <option value="9">المستوى 9</option>
+          <option value="10">المستوى 10</option>
+        </select>
+      </div>
+
+      <div class="panel">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>الرقم الجامعي</th>
+                <th>الاسم الكامل</th>
+                <th>المستوى</th>
+                <th>المعدل التراكمي</th>
+                <th>الغياب</th>
+                <th>الإنذارات</th>
+                <th>الحالة</th>
+                <th>تعثر متطلب؟</th>
+                <th>الإجراءات</th>
+              </tr>
+            </thead>
+            <tbody id="students-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== ALERTS ==================== -->
+    <div class="page" id="page-alerts">
+      <div class="page-title-bar">
+        <div>
+          <div class="page-title">⚠️ التنبيهات والإنذارات الحرجة</div>
+          <div class="page-subtitle">الطلاب المستهدفون بالخطط العلاجية العاجلة</div>
+        </div>
+        <button class="btn btn-danger" onclick="sendBulkAlert()">🚨 إرسال تنبيه لجميع الحالات الحرجة</button>
+      </div>
+
+      <div class="stats-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="stat-card">
+          <div class="stat-icon-box danger">🔴</div>
+          <div>
+            <div class="stat-value danger" id="alerts-danger-count">0</div>
+            <div class="stat-label">خطر حرمان (غياب &gt;15%)</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-box warning">🟡</div>
+          <div>
+            <div class="stat-value warning" id="alerts-warn-count">0</div>
+            <div class="stat-label">إنذار معدل (GPA &lt;2.5)</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-box danger">🚫</div>
+          <div>
+            <div class="stat-value danger" id="alerts-blocked-count">0</div>
+            <div class="stat-label">محجوبون بمتطلب سابق</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">🔴 الحالات الحرجة — تحتاج تدخلاً فورياً</div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>الطالب</th>
+                <th>الرقم الجامعي</th>
+                <th>المستوى</th>
+                <th>نوع الإنذار</th>
+                <th>التفاصيل</th>
+                <th>الإجراء</th>
+              </tr>
+            </thead>
+            <tbody id="alerts-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== APPOINTMENTS ==================== -->
+    <div class="page" id="page-appointments">
+      <div class="page-title-bar">
+        <div>
+          <div class="page-title">📅 إدارة المواعيد وجلسات الإرشاد</div>
+          <div class="page-subtitle">مواعيدك المجدولة وطلبات الجلسات</div>
+        </div>
+        <button class="btn btn-primary" onclick="switchTab2('new-appt-tab','tab-new-appt')">+ موعد جديد</button>
+      </div>
+
+      <div class="tabs">
+        <div class="tab-btn active" id="tab-today" onclick="switchTab2('today-appts','tab-today')">اليوم (3)</div>
+        <div class="tab-btn" id="tab-week" onclick="switchTab2('week-appts','tab-week')">هذا الأسبوع (7)</div>
+        <div class="tab-btn" id="tab-pending" onclick="switchTab2('pending-appts','tab-pending')">بانتظار تأكيد الطالب (4)</div>
+        <div class="tab-btn" id="tab-new-appt" onclick="switchTab2('new-appt-tab','tab-new-appt')">📅 حجز موعد جديد</div>
+      </div>
+
+      <div class="tab-panel active" id="today-appts">
+        <div class="panel">
+          <div id="today-appt-list"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="week-appts">
+        <div class="panel">
+          <div class="panel-header"><div class="panel-title">مواعيد الأسبوع الكامل</div></div>
+          <div id="week-appt-list"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="pending-appts">
+        <div class="panel">
+          <div class="panel-header"><div class="panel-title">⏳ بانتظار تأكيد الطالب</div></div>
+          <div id="pending-appt-list"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="new-appt-tab">
+        <div class="panel">
+          <div class="panel-header"><div class="panel-title">📅 حجز موعد إرشادي جديد</div></div>
+          <div style="padding:20px; max-width:600px;">
+            <div class="grid-2">
+              <div>
+                <div class="form-group">
+                  <label class="form-label">الطالب</label>
+                  <select class="form-select" id="appt-student-select"></select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">نوع الجلسة</label>
+                  <select class="form-select">
+                    <option>جلسة إرشاد دورية</option>
+                    <option>جلسة طارئة</option>
+                    <option>مراجعة خطة دراسية</option>
+                    <option>مراجعة إنذار معدل</option>
+                    <option>توجيه اختيار مسار التخصص</option>
+                    <option>متابعة خطة علاجية</option>
+                    <option>توجيه مشروع التخرج</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">التاريخ</label>
+                  <input type="date" class="form-input">
+                </div>
+              </div>
+              <div>
+                <div class="form-group">
+                  <label class="form-label">الوقت</label>
+                  <input type="time" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">المدة المتوقعة</label>
+                  <select class="form-select">
+                    <option>30 دقيقة</option>
+                    <option>45 دقيقة</option>
+                    <option>60 دقيقة</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">ملاحظات مسبقة</label>
+                  <input class="form-input" placeholder="موضوع الجلسة أو الأوراق المطلوبة...">
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-primary" onclick="showToast('✅ تم حجز الموعد وإرسال إشعار للطالب')">📅 تأكيد الحجز وإشعار الطالب</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== REGISTRATION ==================== -->
+    <div class="page" id="page-registration">
+      <div class="page-title-bar">
+        <div>
+          <div class="page-title">📋 الحذف والتسجيل والخطة الدراسية</div>
+          <div class="page-subtitle">الخطة القياسية المعتمدة — قسم هندسة الحاسب والمعلومات</div>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <div class="tab-btn active" id="reg-tab-delete" onclick="switchTabReg('reg-delete','reg-tab-delete')">طلبات الحذف (4)</div>
+        <div class="tab-btn" id="reg-tab-add" onclick="switchTabReg('reg-add','reg-tab-add')">طلبات الإضافة (3)</div>
+        <div class="tab-btn" id="reg-tab-plan" onclick="switchTabReg('reg-plan','reg-tab-plan')">الخطة الدراسية</div>
+        <div class="tab-btn" id="reg-tab-ai" onclick="switchTabReg('reg-ai','reg-tab-ai')">🤖 توصيات AI</div>
+      </div>
+
+      <div class="tab-panel active" id="reg-delete">
+        <div class="panel">
+          <div class="panel-header"><div class="panel-title">طلبات الحذف — بانتظار موافقة المرشد</div></div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>الطالب</th><th>المقرر</th><th>سبب الطلب</th><th>التأثير على المعدل</th><th>توصية النظام</th><th>القرار</th>
+                </tr>
+              </thead>
+              <tbody id="delete-requests-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="reg-add">
+        <div class="panel">
+          <div class="panel-header"><div class="panel-title">طلبات الإضافة — بانتظار موافقة المرشد</div></div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>الطالب</th><th>المقرر المطلوب</th><th>المتطلب السابق</th><th>الحالة</th><th>توصية النظام</th><th>القرار</th>
+                </tr>
+              </thead>
+              <tbody id="add-requests-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="reg-plan">
+        <div class="panel">
+          <div class="panel-header">
+            <div class="panel-title">🗺️ الخطة الدراسية المعتمدة — هندسة الحاسب والمعلومات</div>
+          </div>
+          <div style="padding:16px;">
+            <div class="plan-legend">
+              <div class="plan-legend-item"><div class="plan-legend-dot" style="background:#e8f5e9;border:1px solid #2e7d32"></div>منجز</div>
+              <div class="plan-legend-item"><div class="plan-legend-dot" style="background:#ffebee;border:1px solid #c62828"></div>لم يُنجز / محجوب</div>
+              <div class="plan-legend-item"><div class="plan-legend-dot" style="background:#e3f2fd;border:1px solid #1565c0"></div>مسجل حالياً</div>
+              <div class="plan-legend-item"><div class="plan-legend-dot" style="background:#f8f9fa;border:1px solid #e0e0e0"></div>قادم</div>
+            </div>
+            <div id="general-plan-grid" class="plan-grid"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="reg-ai">
+        <div class="panel">
+          <div class="panel-header"><div class="panel-title">🤖 توصيات الذكاء الاصطناعي للتسجيل</div></div>
+          <div style="padding:20px;">
+            <div class="form-group">
+              <label class="form-label">اختر الطالب لعرض التوصية المخصصة</label>
+              <select class="form-select" id="ai-rec-student" style="max-width:320px;"></select>
+            </div>
+            <button class="btn btn-primary mb16" onclick="showAIRec()">🤖 توليد التوصية الذكية</button>
+            <div id="ai-rec-output" style="display:none;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEND MSG ==================== -->
+    <div class="page" id="page-send-msg">
+      <div class="page-title-bar">
+        <div>
+          <div class="page-title">📨 إرسال رسائل وإشعارات للطلاب</div>
+          <div class="page-subtitle">التواصل المباشر عبر البريد الجامعي ونظام الإشعارات</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <div class="panel-header"><div class="panel-title">✍️ إنشاء رسالة جديدة</div></div>
+          <div style="padding:18px;">
+            <div class="form-group">
+              <label class="form-label">نوع الرسالة (قالب جاهز)</label>
+              <select class="form-select" id="msg-template-type" onchange="applyTemplate()">
+                <option value="">رسالة مخصصة...</option>
+                <option value="warning">⚠️ تحذير غياب</option>
+                <option value="gpa">📉 تنبيه انخفاض المعدل</option>
+                <option value="appt">📅 دعوة لجلسة إرشادية</option>
+                <option value="fail">🚨 خطر رسوب</option>
+                <option value="praise">🌟 تشجيع وتهنئة</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">المستلم</label>
+              <div class="tabs" style="margin-bottom:8px;">
+                <div class="tab-btn active" id="msg-tab-single" onclick="toggleMsgTarget('single','msg-tab-single')" style="padding:6px 14px;font-size:12px;">طالب واحد</div>
+                <div class="tab-btn" id="msg-tab-group" onclick="toggleMsgTarget('group','msg-tab-group')" style="padding:6px 14px;font-size:12px;">مجموعة</div>
+                <div class="tab-btn" id="msg-tab-all" onclick="toggleMsgTarget('all','msg-tab-all')" style="padding:6px 14px;font-size:12px;">الكل (55)</div>
+              </div>
+              <div id="msg-target-single">
+                <select class="form-select" id="msg-student-select"></select>
+              </div>
+              <div id="msg-target-group" style="display:none;">
+                <div style="display:flex; flex-direction:column; gap:6px;">
+                  <label style="font-size:12px;display:flex;align-items:center;gap:6px;"><input type="checkbox"> الطلاب في خطر حرمان</label>
+                  <label style="font-size:12px;display:flex;align-items:center;gap:6px;"><input type="checkbox"> طلاب الإنذار الأول</label>
+                  <label style="font-size:12px;display:flex;align-items:center;gap:6px;"><input type="checkbox"> طلاب المستوى الأول والثاني</label>
+                  <label style="font-size:12px;display:flex;align-items:center;gap:6px;"><input type="checkbox"> طلاب لم يحضروا جلسة إرشادية</label>
+                </div>
+              </div>
+              <div id="msg-target-all" style="display:none;">
+                <div style="padding:12px;background:var(--ksu-green-light);border-radius:var(--radius);font-size:13px;color:var(--ksu-green-dark);border:1px solid rgba(0,102,51,0.2);">
+                  سيُرسل للـ <strong>55 طالب</strong> في قائمة إرشادك الأكاديمي.
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">القناة</label>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <label style="font-size:12px;display:flex;align-items:center;gap:5px;"><input type="checkbox" checked> 📧 بريد جامعي</label>
+                <label style="font-size:12px;display:flex;align-items:center;gap:5px;"><input type="checkbox" checked> 📱 إشعار منصة</label>
+                <label style="font-size:12px;display:flex;align-items:center;gap:5px;"><input type="checkbox"> 💬 SMS</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">عنوان الرسالة</label>
+              <input class="form-input" id="msg-subject" placeholder="عنوان الرسالة الرسمية...">
+            </div>
+            <div class="form-group">
+              <label class="form-label">نص الرسالة</label>
+              <textarea class="form-textarea" id="msg-body" rows="6" placeholder="اكتب نص الرسالة هنا..."></textarea>
+            </div>
+            <div style="display:flex;gap:8px;">
+              <button class="btn btn-primary" onclick="doSendMsg()">📧 إرسال الآن</button>
+              <button class="btn btn-ghost" onclick="showToast('✅ تم الحفظ كمسودة')">💾 مسودة</button>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="panel mb16">
+            <div class="panel-header"><div class="panel-title">📋 قوالب الرسائل السريعة</div></div>
+            <div style="padding:12px; display:flex; flex-direction:column; gap:6px;">
+              <div onclick="quickApplyTemplate('warning')" style="padding:10px;background:var(--warning-light);border:1px solid rgba(230,81,0,0.2);border-radius:var(--radius);cursor:pointer;font-size:12px;color:var(--warning);">⚠️ تحذير تجاوز الغياب المسموح به</div>
+              <div onclick="quickApplyTemplate('appt')" style="padding:10px;background:var(--ksu-green-light);border:1px solid rgba(0,102,51,0.2);border-radius:var(--radius);cursor:pointer;font-size:12px;color:var(--ksu-green);">📅 دعوة لجلسة إرشادية عاجلة</div>
+              <div onclick="quickApplyTemplate('fail')" style="padding:10px;background:var(--danger-light);border:1px solid rgba(198,40,40,0.2);border-radius:var(--radius);cursor:pointer;font-size:12px;color:var(--danger);">🚨 تنبيه خطر رسوب وخطة علاجية</div>
+              <div onclick="quickApplyTemplate('gpa')" style="padding:10px;background:var(--info-light);border:1px solid rgba(1,87,155,0.2);border-radius:var(--radius);cursor:pointer;font-size:12px;color:var(--info);">📉 إشعار تدني المعدل ووجوب المراجعة</div>
+              <div onclick="quickApplyTemplate('praise')" style="padding:10px;background:var(--gray-100);border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:12px;">🌟 تهنئة وتشجيع على التفوق الأكاديمي</div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><div class="panel-title">📊 سجل الإرسال (اليوم)</div></div>
+            <div style="padding:14px;">
+              <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--gray-100);font-size:13px;">
+                <span>تحذيرات الغياب</span><span style="font-family:var(--mono);color:var(--warning);">7 رسائل · 09:15</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--gray-100);font-size:13px;">
+                <span>تنبيه انخفاض المعدل</span><span style="font-family:var(--mono);color:var(--danger);">3 رسائل · 11:00</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;padding:8px 0;font-size:13px;">
+                <span>دعوات جلسات إرشادية</span><span style="font-family:var(--mono);color:var(--success);">12 رسائل · 01:30</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== INBOX ==================== -->
+    <div class="page" id="page-inbox">
+      <div class="page-title-bar">
+        <div>
+          <div class="page-title">📩 الرسائل الواردة — الإجابة على الطلاب</div>
+          <div class="page-subtitle">8 رسائل جديدة تحتاج رداً</div>
+        </div>
+      </div>
+      <div class="inbox-wrap">
+        <div class="inbox-list" id="inbox-list"></div>
+        <div class="inbox-detail">
+          <div class="inbox-detail-header" id="inbox-detail-header">
+            <div class="inbox-detail-header-name">اختر رسالة للعرض</div>
+          </div>
+          <div class="inbox-messages" id="inbox-messages">
+            <div style="text-align:center;color:var(--gray-400);padding:40px;">اختر رسالة من القائمة</div>
+          </div>
+          <div class="inbox-reply-bar">
+            <div style="display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap;">
+              <button class="btn btn-sm btn-ghost" onclick="quickReply('تم استلام رسالتك وسيتم الرد قريباً')">⚡ تم الاستلام</button>
+              <button class="btn btn-sm btn-ghost" onclick="quickReply('يرجى الحضور لمكتب الإرشاد لمناقشة الموضوع')">🏢 حضور المكتب</button>
+              <button class="btn btn-sm btn-ghost" onclick="quickReply('تم تحديد موعد لك وستصلك رسالة تأكيد قريباً')">📅 تحديد موعد</button>
+            </div>
+            <div style="display:flex;gap:8px;">
+              <textarea class="form-textarea" id="reply-input" rows="2" style="min-height:55px;" placeholder="اكتب ردك هنا..."></textarea>
+              <button class="btn btn-primary" onclick="sendReply()" style="align-self:flex-end;">إرسال ↑</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ===== STUDENT MODAL ===== -->
+<div class="modal-overlay" id="student-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">📋 الملف الأكاديمي للطالب</div>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<!-- ===== CHATBOT (AI Bylaws) ===== -->
+<div class="chatbot-fab" onclick="toggleChatbot()" title="مستشار اللوائح الأكاديمية">⚖️</div>
+<div class="chatbot-window" id="chatbot-window">
+  <div class="chat-head">
+    <span>⚖️ مستشار اللوائح الجامعية</span>
+    <span onclick="toggleChatbot()" style="cursor:pointer;font-size:18px;">×</span>
+  </div>
+  <div class="chat-body" id="chat-body">
+    <div class="chat-bubble bot">مرحباً دكتور. يمكنك سؤالي عن أي لائحة جامعية مثل: الغياب، الحرمان، الحذف والإضافة، التظلم، شروط التخرج، الإنذارات وغيرها.</div>
+  </div>
+  <div class="chat-foot">
+    <input class="form-input" id="chat-input" placeholder="اسأل عن أي لائحة..." onkeypress="if(event.key==='Enter')askBot()">
+    <button class="btn btn-primary btn-sm" onclick="askBot()">إرسال</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ===================================================
+// DATA LAYER
+// ===================================================
+
+const STUDY_PLAN = [
+  { lvl:1,  courses:[{code:"كيم 101",name:"كيمياء عامة"},{code:"ريض 101",name:"حساب التفاضل"},{code:"إحص 101",name:"مبادئ الإحصاء"},{code:"عرب 100",name:"مهارات الكتابة"},{code:"إنجل 100",name:"اللغة الإنجليزية"}] },
+  { lvl:2,  courses:[{code:"إنجل 110",name:"إنجليزي تخصصي"},{code:"نهج 101",name:"مهارات جامعية"},{code:"فجب 101",name:"الثقافة الصحية"},{code:"تقن 101",name:"مهارات الإنترنت"},{code:"فيز 103",name:"الفيزياء 1"}] },
+  { lvl:3,  courses:[{code:"ريض 151",name:"رياضيات متقطعة"},{code:"عال 111",name:"برمجة 1"},{code:"ريض 106",name:"حساب التكامل"},{code:"فيز 104",name:"الفيزياء 2"}] },
+  { lvl:4,  courses:[{code:"هال 211",name:"تصميم منطقي 1"},{code:"ريض 205",name:"تفاضل متقدم"},{code:"عال 113",name:"برمجة 2"},{code:"نجم 109",name:"لغة وتخاطب"}] },
+  { lvl:5,  courses:[{code:"هال 212",name:"تصميم منطقي 2"},{code:"عال 212",name:"تراكيب البيانات"},{code:"كهر 207",name:"دوائر كهربائية"},{code:"ريض 204",name:"معادلات تفاضلية"},{code:"نجم 110",name:"الكتابة الفنية"}] },
+  { lvl:6,  courses:[{code:"هال 351",name:"إشارات ونظم"},{code:"هال 316",name:"عمارة الحاسبات"},{code:"كهر 312",name:"معمل إلكترونيات"},{code:"كهر 310",name:"أساسيات إلكترونيات"},{code:"ريض 244",name:"جبر خطي"},{code:"عال 227",name:"نظم التشغيل"}] },
+  { lvl:7,  courses:[{code:"هال 390",name:"ندوة هندسة الحاسب"},{code:"هال 352",name:"معالجة الإشارات"},{code:"هال 341",name:"تراسل البيانات"},{code:"هال 318",name:"النظم المضمنة"},{code:"هاب 211",name:"هندسة البرمجيات"}] },
+  { lvl:8,  courses:[{code:"هال 490",name:"التصميم الهندسي"},{code:"هال 453",name:"التحكم والروبوتية"},{code:"هال 441",name:"شبكات الحاسبات"},{code:"هال 415",name:"الدوائر المتكاملة"},{code:"عال 311",name:"تحليل الخوارزميات"}] },
+  { lvl:9,  courses:[{code:"هال 492",name:"مشروع تخرج 1"},{code:"هال 442",name:"أمن الشبكات"},{code:"سلم 107",name:"أخلاقيات المهنة"}] },
+  { lvl:10, courses:[{code:"هال 493",name:"مشروع تخرج 2"}] }
+];
+
+// Prerequisites map: key depends on prereq
+const PREREQS = {
+  "عال 113": "عال 111",
+  "عال 212": "عال 113",
+  "عال 227": "عال 212",
+  "عال 311": "عال 212",
+  "هال 212": "هال 211",
+  "هال 316": "هال 212",
+  "هال 318": "هال 316",
+  "هال 441": "هال 316",
+  "هال 442": "هال 441",
+  "ريض 106": "ريض 101",
+  "ريض 205": "ريض 106",
+  "ريض 204": "ريض 205",
+  "هال 492": "هال 490",
+  "هال 493": "هال 492"
+};
+
+// بيانات الطلاب — الرقم الجامعي 9 أرقام + الاسم
+const RAW = [
+  { id:"441102345", name:"أحمد محمد العتيبي" },
+  { id:"441105678", name:"خالد عبدالله الدوسري" },
+  { id:"441109012", name:"محمد عبدالعزيز القحطاني" },
+  { id:"441103456", name:"فيصل سليمان الحربي" },
+  { id:"441107890", name:"عبدالرحمن علي المطيري" },
+  { id:"441101234", name:"سعود فهد الشمري" },
+  { id:"442105678", name:"مشاري حمد العنزي" },
+  { id:"442109012", name:"نواف سلطان السبيعي" },
+  { id:"442103456", name:"سلطان بدر الزهراني" },
+  { id:"442107890", name:"تركي خالد الغامدي" },
+  { id:"442101234", name:"ثامر صالح الشمراني" },
+  { id:"442105670", name:"عبدالله عمر الشهري" },
+  { id:"443109011", name:"عمر حسن الأسمري" },
+  { id:"443103452", name:"يوسف أحمد العسيري" },
+  { id:"443107893", name:"فهد عبداللطيف البقمي" },
+  { id:"443101235", name:"زياد مساعد السهلي" },
+  { id:"443105679", name:"ريان طارق الخالدي" },
+  { id:"443109014", name:"بدر ناصر الرشيدي" },
+  { id:"444103457", name:"نايف مشعل الرويلي" },
+  { id:"444107891", name:"سلمان فايز التميمي" },
+  { id:"444101236", name:"ماجد ممدوح الشمري" },
+  { id:"444105671", name:"راكان وليد القحطاني" },
+  { id:"444109015", name:"طارق إبراهيم الحارثي" },
+  { id:"444103458", name:"مساعد باسل الدوسري" },
+  { id:"444107892", name:"مهند سعود المطيري" },
+  { id:"445101237", name:"علي حسين اليامي" },
+  { id:"445105672", name:"حسن محمد الصيعري" },
+  { id:"445109016", name:"إبراهيم خالد المالكي" },
+  { id:"445103459", name:"صالح عبدالله السديري" },
+  { id:"445107895", name:"وليد منصور الفوزان" },
+  { id:"445101238", name:"عبدالعزيز فهد السلمان" },
+  { id:"445105673", name:"باسل سامي المقرن" },
+  { id:"445109017", name:"مشعل تركي التويجري" },
+  { id:"446103460", name:"ناصر عبدالرحمن العجلان" },
+  { id:"446107896", name:"حمد فيصل الراجحي" },
+  { id:"446101239", name:"سامي صالح السيف" },
+  { id:"446105674", name:"عادل محمد النفيسة" },
+  { id:"446109018", name:"زكريا أحمد العبداللطيف" },
+  { id:"446103461", name:"منصور خالد السلوم" },
+  { id:"446107897", name:"ممدوح عبدالله الجبر" },
+  { id:"446101240", name:"حاتم سلطان السويدان" },
+  { id:"446105675", name:"عيسى يوسف الصالح" },
+  { id:"446109019", name:"يعقوب سليمان الباز" },
+  { id:"446103462", name:"مؤيد طارق العيسى" },
+  { id:"446107898", name:"أنس إبراهيم الدخيل" },
+  { id:"446101241", name:"عاصم محمد الخضير" },
+  { id:"446105676", name:"شاكر فهد السدحان" },
+  { id:"446109020", name:"مالك عبدالعزيز السليم" },
+  { id:"446103463", name:"وائل ناصر القاسم" },
+  { id:"446107899", name:"قصي خالد العثمان" },
+  { id:"446101242", name:"مصعب صالح العبيد" },
+  { id:"446105677", name:"معاذ عبدالله الماجد" },
+  { id:"446109021", name:"حازم سليمان العمر" },
+  { id:"446103464", name:"هشام محمد الرشيد" },
+  { id:"446107900", name:"نواف فهد السعيد" }
+];
+
+// ===== Seeded pseudo-random for deterministic data =====
+function seededRand(seed) {
+  let x = Math.sin(seed + 1) * 10000;
+  return x - Math.floor(x);
+}
+
+// ===== Build students array =====
+let STUDENTS = [];
+
+function buildStudents() {
+  STUDENTS = RAW.map((entry, idx) => {
+    const id    = entry.id;   // رقم جامعي 9 أرقام صحيح
+    const name  = entry.name;
+    // أول 3 أرقام من الرقم الجامعي = دفعة القبول (441، 442، ...)
+    const batch = parseInt(id.substring(0, 3));
+
+    // المستوى الدراسي المتوقع بناءً على دفعة القبول
+    // 441 = دفعة 2020/21 → المستوى 9-10 (قرب التخرج)
+    // 446 = دفعة 2025/26 → المستوى 1-2 (أول الدراسة)
+    let stdLevel = 2;
+    if      (batch === 441) stdLevel = 10;
+    else if (batch === 442) stdLevel = 8;
+    else if (batch === 443) stdLevel = 7;
+    else if (batch === 444) stdLevel = 5;
+    else if (batch === 445) stdLevel = 3;
+    else if (batch === 446) stdLevel = 2;
+
+    // عشوائية محددة (deterministic) لضمان ثبات البيانات
+    const struggling    = seededRand(idx * 7 + 3) > 0.72;
+    const levelDelay    = struggling ? Math.floor(seededRand(idx * 3) * 2 + 1) : 0;
+    const currentLevel  = Math.max(1, stdLevel - levelDelay);
+
+    let gpa, absence;
+    if (struggling) {
+      gpa     = 1.4 + seededRand(idx * 11) * 0.8;            // 1.4 – 2.2
+      absence = 10  + Math.floor(seededRand(idx * 13) * 14); // 10% – 23%
+    } else {
+      gpa     = 2.8 + seededRand(idx * 5)  * 2.1;            // 2.8 – 4.9
+      absence = Math.floor(seededRand(idx * 17) * 10);       // 0% – 9%
+    }
+    gpa = Math.min(5.0, Math.max(1.0, gpa));
+
+    const warnings = gpa < 2.0 ? (seededRand(idx * 19) > 0.5 ? 2 : 1) : 0;
+
+    let risk = 'ok';
+    if      (gpa < 2.0 || absence > 15 || warnings >= 2) risk = 'danger';
+    else if (gpa < 2.5 || absence > 10 || warnings === 1) risk = 'warn';
+    else if (gpa >= 4.5) risk = 'great';
+
+    // بناء حالات المقررات مع احترام شجرة المتطلبات
+    let courseStatuses = {};
+    let failedCodes    = new Set();
+
+    // للطلاب المتعثرين: تحديد متطلب سابق راسب واحد
+    if (struggling) {
+      const targets = ["عال 111", "هال 211", "ريض 106"];
+      failedCodes.add(targets[Math.floor(seededRand(idx * 23) * targets.length)]);
+    }
+
+    STUDY_PLAN.forEach(block => {
+      block.courses.forEach(c => {
+        if (failedCodes.has(c.code)) {
+          courseStatuses[c.code] = 'failed';
+        } else {
+          const prereq = PREREQS[c.code];
+          if (prereq && (courseStatuses[prereq] === 'failed' || failedCodes.has(prereq))) {
+            // المادة محجوبة بسبب فشل المتطلب السابق
+            courseStatuses[c.code] = 'failed';
+          } else if (block.lvl < currentLevel) {
+            courseStatuses[c.code] = 'done';
+          } else if (block.lvl === currentLevel) {
+            courseStatuses[c.code] = 'current';
+          } else {
+            courseStatuses[c.code] = 'future';
+          }
+        }
+      });
+    });
+
+    const hasBlockedCourse = Object.entries(courseStatuses).some(
+      ([code, status]) => status === 'failed' && PREREQS[code]
+    );
+
+    return { id, name, batch, level: currentLevel, gpa, absence, warnings, risk, struggling, courseStatuses, hasBlockedCourse };
+  });
+}
+
+// ===== Message Templates =====
+const TEMPLATES = {
+  warning: {
+    subject: "⚠️ تنبيه رسمي: تجاوز الحد الأقصى للغياب المسموح به",
+    body: "الطالب العزيز،\n\nنفيدكم بأن سجلات الحضور تشير إلى تجاوز نسبة الغياب الحد الأقصى المقرر لائحياً (15%). استمرار هذا الوضع سيؤدي إلى الحرمان من أداء الاختبار النهائي.\n\nيرجى مراجعة مكتب الإرشاد الأكاديمي في أقرب وقت.\n\nد. عبدالعزيز المطيري — الإرشاد الأكاديمي"
+  },
+  gpa: {
+    subject: "📉 إشعار: انخفاض المعدل التراكمي ووجوب مراجعة الخطة الدراسية",
+    body: "الطالب العزيز،\n\nبناءً على متابعة منظومة الإرشاد الاستباقي، رُصد تدنٍّ في معدلك التراكمي الحالي. نرجو التواصل مع مرشدك الأكاديمي لوضع خطة علاجية قبل نهاية الفصل الدراسي.\n\nد. عبدالعزيز المطيري"
+  },
+  appt: {
+    subject: "📅 استدعاء: جلسة إرشاد أكاديمي عاجلة",
+    body: "الطالب العزيز،\n\nيرجى الحضور إلى مكتب الإرشاد الأكاديمي خلال 48 ساعة لمناقشة وضعك الدراسي الحالي. يُرجى إحضار آخر كشف درجات وبطاقة الطالب.\n\nد. عبدالعزيز المطيري"
+  },
+  fail: {
+    subject: "🚨 تنبيه عاجل: خطر رسوب أكاديمي وضرورة التدخل الفوري",
+    body: "الطالب العزيز،\n\nرصد نظام الإرشاد الاستباقي احتمالاً مرتفعاً للرسوب في مقرر أو أكثر بناءً على نتائج التقييمات المستمرة. الرجاء التواصل عاجلاً لوضع خطة علاجية.\n\nد. عبدالعزيز المطيري"
+  },
+  praise: {
+    subject: "🌟 تهنئة: تفوق وأداء أكاديمي متميز",
+    body: "الطالب العزيز،\n\nيسعدني مباركتك على مستواك الأكاديمي المتميز هذا الفصل. أداؤك يُجسّد الطالب النموذجي في قسم هندسة الحاسب. نتمنى لك دوام التوفيق.\n\nد. عبدالعزيز المطيري"
+  }
+};
+
+// ===== Inbox Data =====
+const INBOX_DATA = [
+  { from:"أحمد محمد العتيبي", id:"441102345", subject:"استفسار عن التظلم من الغياب في مقرر CS211", time:"09:45", badge:"danger",
+    msg:"السلام عليكم دكتور، أنا أحمد العتيبي رقم 441102345. أرجو المساعدة في موضوع الغياب في مقرر هال 211، الأستاذ لم يوثق غيابي بشكل صحيح في أسبوع الاختبار الأول، وأنا الآن قريب من الحرمان. هل يمكن رفع تظلم رسمي؟",
+    replies:[{from:"advisor",text:"وعليكم السلام أحمد، سأتواصل مع أستاذ المادة اليوم. يرجى إحضار أدلة الحضور (لقطات شاشة مجموعة المادة، أو شهادة زملاء) عند حضورك للمكتب غداً الساعة 9 صباحاً.",time:"10:20"}] },
+  { from:"خالد عبدالله الدوسري", id:"441105678", subject:"طلب موعد إرشادي عاجل — إنذار أكاديمي", time:"08:30", badge:"danger",
+    msg:"دكتور، وصلني إشعار بإنذار أكاديمي ومعدلي تدنى بشكل كبير هذا الفصل. أحتاج موعداً عاجلاً لمناقشة الوضع.",
+    replies:[] },
+  { from:"فيصل سليمان الحربي", id:"441103456", subject:"تعارض في تسجيل مقرر عمارة الحاسبات", time:"أمس", badge:"warning",
+    msg:"دكتور، ظهر لي في النظام تعارض في تسجيل مقرر (هال 316) بسبب عدم اجتياز متطلبه (هال 212). هل توجد إمكانية لفتح الشعبة كاستثناء أو هناك حل بديل؟",
+    replies:[] },
+  { from:"ماجد ممدوح الشمري", id:"444101236", subject:"استفسار عن شروط إعادة المقرر لرفع المعدل", time:"أمس", badge:"info",
+    msg:"السلام عليكم، أرغب في إعادة مقرر حصلت فيه على درجة (د) لرفع معدلي. هل هذا مسموح؟ وهل سيُحتسب المعدل الجديد أم القديم؟",
+    replies:[] },
+  { from:"هشام محمد الرشيد", id:"446103464", subject:"الاستفسار عن إجراءات تسجيل مشروع التخرج", time:"أمس", badge:"info",
+    msg:"دكتور، أنا في المستوى الثاني وأتطلع لمعرفة متطلبات وخطوات تسجيل مشروع التخرج (هال 492) مبكراً للتخطيط الجيد.",
+    replies:[] },
+  { from:"نواف سلطان السبيعي", id:"442109012", subject:"طلب تأجيل الاختبار لظروف صحية", time:"قبل يومين", badge:"warning",
+    msg:"دكتور، غبت عن اختبار مقرر (عال 212) لظروف صحية طارئة ولدي وثيقة من المستشفى. كيف أقدم طلب التأجيل الرسمي؟",
+    replies:[] },
+  { from:"راكان وليد القحطاني", id:"444105671", subject:"شكوى: عدم تطابق الدرجة المرصودة مع الورقة", time:"قبل 3 أيام", badge:"warning",
+    msg:"دكتور، حصلت في الاختبار الأول على 36 من 40 لكن الدرجة المرصودة في النظام تظهر 26. أرجو المساعدة في تصحيح الخطأ.",
+    replies:[] },
+  { from:"حازم سليمان العمر", id:"446109021", subject:"استفسار عن قواعد الحضور في المقررات العملية", time:"قبل 4 أيام", badge:"info",
+    msg:"دكتور، هل قاعدة الغياب 15% تُحتسب بشكل منفصل للمقرر النظري والمعمل في المقررات التي تحتوي على الاثنين معاً؟",
+    replies:[] }
+];
+
+// ===== Chatbot KB =====
+const CHATBOT_KB = [
+  { keys:["حذف","إضافة","اضافه","حذف مادة","تسجيل"], ans:"وفقاً للائحة، يحق للطالب حذف أي مقرر أو إضافة آخر خلال الفترة المعلنة بداية الفصل (عادةً أول أسبوعين). الحذف بعد هذه الفترة يُدوَّن بـ(W) في السجل ولا يؤثر على المعدل، لكن يُحتسب من الحد الأقصى للمقررات المسموح بحذفها خلال مسيرة الطالب الجامعية." },
+  { keys:["غياب","حرمان","الاختبار","نسبة"], ans:"تنص اللائحة على أنه إذا تجاوز الطالب 15% من إجمالي محاضرات المقرر، يُحرم من أداء الاختبار النهائي ويُعطى درجة (صفر). يحق للطالب التظلم خلال أسبوع من إشعار الحرمان عبر رئيس القسم. الغياب لأعذار طبية موثقة يُعرض على لجنة الشؤون الأكاديمية." },
+  { keys:["غش","انتحال","تزوير","ورقة","اختبار"], ans:"يُعدّ الغش أو محاولته أو تسهيله مخالفة أكاديمية صريحة تستوجب: رصد صفر في المادة + إحالة لمجلس التأديب. قد تصل العقوبة إلى الفصل المؤقت أو الدائم حسب جسامة المخالفة وتكرارها. انتحال الشخصية في الاختبارات يُعامَل بأقصى الدرجات." },
+  { keys:["تظلم","شكوى","درجة","مراجعة","اعتراض"], ans:"يحق للطالب تقديم تظلم على الدرجات أو القرارات الأكاديمية خلال أسبوعين من إعلان النتائج. يُقدَّم التظلم كتابياً عبر القسم الأكاديمي. في حال رفض التظلم، يُحال لعمادة شؤون الطلاب. الطالب مكفول بحق الدفاع أمام أي لجنة." },
+  { keys:["إنذار","معدل","فصل","الحد","الأدنى"], ans:"إنذار أكاديمي أول: عند هبوط المعدل دون 2.0. إنذار ثانٍ: تكرار. إنذار ثالث: عرض على لجنة الفصل الأكاديمي. الطالب يُمهَل فصلاً لرفع المعدل. يحق له التقدم لطلب إجازة دراسية موثقة لاستعادة الوضع الأكاديمي. اتصل بالإرشاد فور الإنذار الأول." },
+  { keys:["تخرج","ساعات","مشروع","شروط","تخرج","حد"], ans:"شروط التخرج: إتمام الساعات المعتمدة في الخطة (130 ساعة للبكالوريوس في هندسة الحاسب)، معدل تراكمي لا يقل عن 2.0، اجتياز مشروع التخرج (HAL 493). التقديم يكون في الفصل الذي يتوقع فيه الطالب إنهاء المتطلبات." },
+];
+
+// ===================================================
+// RENDER FUNCTIONS
+// ===================================================
+
+function riskBadge(risk) {
+  const map = {
+    danger: '<span class="badge badge-danger">🚨 خطر</span>',
+    warn:   '<span class="badge badge-warning">⚠️ تحذير</span>',
+    ok:     '<span class="badge badge-info">🔵 مستقر</span>',
+    great:  '<span class="badge badge-success">🟢 ممتاز</span>'
+  };
+  return map[risk] || '';
+}
+
+function gpaChip(gpa) {
+  const cls = gpa >= 3.5 ? 'gpa-high' : gpa >= 2.0 ? 'gpa-med' : 'gpa-low';
+  return `<span class="gpa-chip ${cls}">${gpa.toFixed(2)}</span>`;
+}
+
+function renderDashboard() {
+  const danger = STUDENTS.filter(s => s.risk === 'danger');
+  const warn   = STUDENTS.filter(s => s.risk === 'warn');
+  const great  = STUDENTS.filter(s => s.risk === 'great');
+  const blocked = STUDENTS.filter(s => Object.values(s.courseStatuses).includes('failed'));
+
+  document.getElementById('dash-danger').textContent = danger.length;
+  document.getElementById('dash-warn').textContent   = warn.length;
+  document.getElementById('dash-ok').textContent     = great.length;
+  document.getElementById('nav-alert-count').textContent = danger.length;
+  document.getElementById('sidebar-alert-count').textContent = danger.length;
+  document.getElementById('alerts-danger-count').textContent = danger.filter(s => s.absence > 15).length;
+  document.getElementById('alerts-warn-count').textContent   = warn.length;
+  document.getElementById('alerts-blocked-count').textContent = blocked.length;
+
+  // Critical alerts list
+  const dashAlerts = danger.slice(0, 6).map(s => `
+    <div class="alert-item">
+      <div class="alert-dot red pulse"></div>
+      <div style="flex:1">
+        <div class="alert-text"><strong>${s.name}</strong> — ${s.gpa < 2.0 ? `معدل حرج (${s.gpa.toFixed(2)})` : `غياب مرتفع (${s.absence}%)`}</div>
+        <div class="alert-meta">${s.id} · المستوى ${s.level} · دفعة ${s.batch}</div>
+      </div>
+      <button class="btn btn-sm btn-danger" onclick="showToast('✅ تم إرسال تنبيه لـ${s.name}');event.stopPropagation()">📨 تنبيه</button>
+    </div>`).join('');
+  document.getElementById('dash-alerts-list').innerHTML = dashAlerts || '<div style="padding:20px;text-align:center;color:var(--gray-400);">لا توجد حالات حرجة ✓</div>';
+
+  // Failed courses
+  const failedCourses = [
+    { code:'هال 211', name:'التصميم المنطقي 1', fail:28, avg:58 },
+    { code:'عال 212', name:'تراكيب البيانات',   fail:22, avg:61 },
+    { code:'ريض 205', name:'التفاضل المتقدم',  fail:19, avg:63 },
+    { code:'عال 311', name:'تحليل الخوارزميات',fail:17, avg:65 },
+    { code:'هال 316', name:'عمارة الحاسبات',  fail:14, avg:67 }
+  ];
+  document.getElementById('failed-courses-list').innerHTML = failedCourses.map(c => `
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--gray-100);">
+      <span style="font-family:var(--mono);font-size:11px;background:var(--ksu-blue-light);color:var(--ksu-blue);padding:3px 8px;border-radius:4px;min-width:80px;text-align:center;">${c.code}</span>
+      <div style="flex:1">
+        <div style="font-size:13px;font-weight:600;">${c.name}</div>
+        <div style="font-size:11px;color:var(--gray-500);margin-top:2px;">${c.fail} طالب · متوسط الشعبة ${c.avg}%</div>
+      </div>
+      <div style="font-family:var(--mono);font-weight:700;font-size:18px;color:var(--danger);">${c.fail}%</div>
+    </div>`).join('');
+
+  // Performance distribution
+  const levels = [
+    { label:'ممتاز (4.5–5.0)',    count:great.length,  color:  '#2e7d32',  bg:'#e8f5e9' },
+    { label:'جيد جداً (3.5–4.4)', count:STUDENTS.filter(s=>s.gpa>=3.5&&s.gpa<4.5).length, color:'#1565c0', bg:'#e3f2fd' },
+    { label:'جيد (2.5–3.4)',       count:STUDENTS.filter(s=>s.gpa>=2.5&&s.gpa<3.5).length, color:'#6a1b9a', bg:'#f3e5f5' },
+    { label:'مقبول (2.0–2.4)',      count:STUDENTS.filter(s=>s.gpa>=2.0&&s.gpa<2.5).length, color:var_warning(), bg:'#fff3e0' },
+    { label:'خطر (أقل من 2.0)',    count:STUDENTS.filter(s=>s.gpa<2.0).length,             color:  '#c62828',  bg:'#ffebee' }
+  ];
+  document.getElementById('perf-distribution').innerHTML = levels.map(l => {
+    const pct = Math.round((l.count / STUDENTS.length) * 100);
+    return `<div style="margin-bottom:12px;">
+      <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px;">
+        <span>${l.label}</span>
+        <span style="font-family:var(--mono);color:${l.color};font-weight:700;">${l.count} طالب</span>
+      </div>
+      <div style="height:7px;background:var(--gray-100);border-radius:4px;overflow:hidden;">
+        <div style="height:100%;width:${pct}%;background:${l.color};border-radius:4px;"></div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function var_warning() { return '#e65100'; }
+
+function renderStudentsTable(list) {
+  document.getElementById('students-tbody').innerHTML = list.map((s, i) => {
+    const blocked = Object.values(s.courseStatuses).includes('failed');
+    return `<tr>
+      <td style="color:var(--gray-400);font-size:12px;">${i+1}</td>
+      <td style="font-family:var(--mono);color:var(--ksu-blue);font-weight:600;font-size:12px;">${s.id}</td>
+      <td><a onclick="openStudentModal('${s.id}')">${s.name}</a></td>
+      <td style="text-align:center;font-weight:600;">المستوى ${s.level}</td>
+      <td>${gpaChip(s.gpa)}</td>
+      <td style="font-family:var(--mono);font-weight:700;color:${s.absence>15?'var(--danger)':s.absence>10?'var(--warning)':'var(--success)'};">${s.absence}%</td>
+      <td style="text-align:center;font-weight:700;color:${s.warnings>0?'var(--danger)':'var(--gray-500)'};">${s.warnings}</td>
+      <td>${riskBadge(s.risk)}</td>
+      <td>${blocked ? '<span class="badge badge-danger">⛔ نعم</span>' : '<span class="badge badge-success">✓ لا</span>'}</td>
+      <td style="display:flex;gap:4px;padding:8px 14px;">
+        <button class="btn btn-sm btn-ghost" onclick="openStudentModal('${s.id}')">📋 الملف</button>
+        <button class="btn btn-sm btn-warning" onclick="prepareMsg('${s.id}');showToast('اختر الطالب في صفحة الإرسال')" style="padding:4px 8px;">📨</button>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+function renderAlerts() {
+  const list = STUDENTS.filter(s => s.risk === 'danger' || s.risk === 'warn');
+  document.getElementById('alerts-tbody').innerHTML = list.map(s => {
+    const blocked = Object.values(s.courseStatuses).includes('failed');
+    let alertType, alertDetail;
+    if (s.absence > 15) {
+      alertType = '<span class="badge badge-danger">🚨 خطر حرمان</span>';
+      alertDetail = `غياب ${s.absence}% يتجاوز الحد الأقصى 15%`;
+    } else if (s.gpa < 2.0) {
+      alertType = '<span class="badge badge-danger">🔴 إنذار معدل</span>';
+      alertDetail = `المعدل ${s.gpa.toFixed(2)} — دون الحد الأدنى 2.0`;
+    } else if (blocked) {
+      alertType = '<span class="badge badge-warning">⛔ حجب متطلب</span>';
+      alertDetail = 'متطلب سابق لم يُنجز يحجب مقررات قادمة';
+    } else {
+      alertType = '<span class="badge badge-warning">⚠️ تحذير</span>';
+      alertDetail = `معدل ${s.gpa.toFixed(2)} أو غياب ${s.absence}%`;
+    }
+    return `<tr>
+      <td><strong>${s.name}</strong></td>
+      <td style="font-family:var(--mono);color:var(--ksu-blue);font-size:12px;">${s.id}</td>
+      <td>المستوى ${s.level}</td>
+      <td>${alertType}</td>
+      <td style="font-size:12px;color:var(--gray-600);">${alertDetail}</td>
+      <td style="display:flex;gap:4px;padding:8px 14px;">
+        <button class="btn btn-sm btn-danger" onclick="showToast('✅ تم إرسال تنبيه لـ${s.name}')">📨 تنبيه</button>
+        <button class="btn btn-sm btn-ghost" onclick="openStudentModal('${s.id}')">📋</button>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+function renderAppointments() {
+  const todayAppts = [
+    { time:'09:00', day:'الأحد', name:'🔴 أحمد محمد العتيبي', id:'441102345', desc:'جلسة طارئة — مراجعة إنذار أكاديمي (GPA: 1.72)', badge:'danger', badgeText:'طارئ' },
+    { time:'11:30', day:'الأحد', name:'🟡 خالد عبدالله الدوسري', id:'441105678', desc:'مراجعة خطة دراسية — تعثر متطلبات المستوى 4', badge:'warning', badgeText:'مجدول' },
+    { time:'02:00', day:'الأحد', name:'🟢 هشام محمد الرشيد', id:'446103464', desc:'استشارة — الاستفسار عن مشروع التخرج', badge:'success', badgeText:'مجدول' }
+  ];
+  document.getElementById('today-appt-list').innerHTML = todayAppts.map(a => `
+    <div class="appt-card">
+      <div class="appt-time-box">
+        <div class="appt-time-val">${a.time}</div>
+        <div class="appt-time-day">${a.day}</div>
+      </div>
+      <div class="appt-detail">
+        <div class="appt-name">${a.name}</div>
+        <div class="appt-desc">${a.desc}</div>
+        <div class="appt-actions">
+          <button class="btn btn-sm btn-primary" onclick="showToast('✅ تم تأكيد الموعد')">✓ تأكيد</button>
+          <button class="btn btn-sm btn-ghost" onclick="openStudentModal('${a.id}')">📋 الملف</button>
+          <button class="btn btn-sm btn-danger" onclick="showToast('تم إلغاء الموعد')">✗ إلغاء</button>
+        </div>
+      </div>
+      <span class="badge badge-${a.badge}">${a.badgeText}</span>
+    </div>`).join('');
+
+  const weekAppts = [
+    { time:'10:00', day:'الاثنين', name:'خالد الشهراني · 441208456', desc:'خطة علاجية عاجلة — إنذار ثالث', badge:'danger' },
+    { time:'12:00', day:'الثلاثاء', name:'ريان طارق الخالدي · 443105679', desc:'مراجعة تسجيل الفصل القادم', badge:'success' },
+    { time:'09:30', day:'الأربعاء', name:'مشاري حمد العنزي · 442105678', desc:'متابعة خطة رفع المعدل', badge:'warning' },
+    { time:'11:00', day:'الخميس', name:'طارق إبراهيم الحارثي · 444109015', desc:'توجيه اختيار مسار التخصص الدقيق', badge:'info' }
+  ];
+  document.getElementById('week-appt-list').innerHTML = weekAppts.map(a => `
+    <div class="appt-card">
+      <div class="appt-time-box">
+        <div class="appt-time-val">${a.time}</div>
+        <div class="appt-time-day">${a.day}</div>
+      </div>
+      <div class="appt-detail">
+        <div class="appt-name">${a.name}</div>
+        <div class="appt-desc">${a.desc}</div>
+        <div class="appt-actions">
+          <button class="btn btn-sm btn-primary" onclick="showToast('✅ تم التأكيد')">✓ تأكيد</button>
+          <button class="btn btn-sm btn-danger" onclick="showToast('تم الإلغاء')">✗ إلغاء</button>
+        </div>
+      </div>
+      <span class="badge badge-${a.badge}">${['danger'].includes(a.badge)?'طارئ':'مجدول'}</span>
+    </div>`).join('');
+
+  document.getElementById('pending-appt-list').innerHTML = [
+    { name:'نواف سلطان السبيعي · 442109012', desc:'مراجعة طلب تأجيل اختبار', time:'غداً 10:00' },
+    { name:'راكان وليد القحطاني · 444105671', desc:'شكوى درجة اختبار', time:'الأحد 01:00' },
+    { name:'عمر حسن الأسمري · 443109011', desc:'استفسار خطة دراسية', time:'الاثنين 11:00' },
+    { name:'ثامر صالح الشمراني · 442101234', desc:'طلب إضافة مقرر', time:'الاثنين 12:00' }
+  ].map(a => `
+    <div class="appt-card">
+      <div class="appt-time-box" style="background:var(--warning-light);border-color:rgba(230,81,0,0.2);">
+        <div class="appt-time-val" style="color:var(--warning);font-size:12px;">${a.time}</div>
+      </div>
+      <div class="appt-detail">
+        <div class="appt-name">${a.name}</div>
+        <div class="appt-desc">${a.desc}</div>
+        <div class="appt-actions">
+          <button class="btn btn-sm btn-ghost" onclick="showToast('✅ تم إرسال تذكير للطالب')">📨 إرسال تذكير</button>
+        </div>
+      </div>
+      <span class="badge badge-warning">انتظار</span>
+    </div>`).join('');
+}
+
+function renderGeneralPlan() {
+  document.getElementById('general-plan-grid').innerHTML = STUDY_PLAN.map(block => `
+    <div class="plan-level-col">
+      <div class="plan-level-header">المستوى ${block.lvl}</div>
+      ${block.courses.map(c => `
+        <div class="plan-course-item plan-future" style="margin:4px;font-size:10px;">
+          ${c.code}<br><span style="font-size:8px;opacity:0.7;">${c.name}</span>
+        </div>`).join('')}
+    </div>`).join('');
+}
+
+function renderRegistrationRequests() {
+  // Delete requests
+  document.getElementById('delete-requests-tbody').innerHTML = [
+    { name:'أحمد محمد العتيبي', id:'441102345', course:'هال 211', reason:'غياب 22% + أداء ميدترم ضعيف', effect:'يرفع المعدل +0.3', rec:'يُنصح بالحذف', recBadge:'success' },
+    { name:'خالد عبدالله الدوسري', id:'441105678', course:'عال 212', reason:'صعوبة عالية + ضغط مواد متزامن', effect:'محايد', recBadge:'warning', rec:'راجع الظروف' },
+    { name:'عبدالله عمر الشهري', id:'442105670', course:'ريض 205', reason:'درجة ميدترم 24/60', effect:'يُقلل الضغط الأكاديمي', rec:'يُنصح بالحذف', recBadge:'success' },
+    { name:'تركي خالد الغامدي', id:'442107890', course:'كهر 207', reason:'صعوبة مزدوجة مع مادتين أخريين', effect:'يتحسن أداء البقية', rec:'يُنصح بالحذف', recBadge:'success' }
+  ].map(r => `<tr>
+    <td><strong>${r.name}</strong><br><small style="color:var(--gray-500);font-family:var(--mono);">${r.id}</small></td>
+    <td><span class="badge badge-info">${r.course}</span></td>
+    <td style="font-size:12px;">${r.reason}</td>
+    <td style="font-size:12px;color:var(--success);">${r.effect}</td>
+    <td><span class="badge badge-${r.recBadge}">${r.rec}</span></td>
+    <td style="display:flex;gap:4px;padding:8px 14px;">
+      <button class="btn btn-sm btn-primary" onclick="showToast('✅ تمت الموافقة على حذف ${r.course}')">✓ موافق</button>
+      <button class="btn btn-sm btn-danger" onclick="showToast('تم الرفض')">✗ رفض</button>
+    </td>
+  </tr>`).join('');
+
+  // Add requests
+  document.getElementById('add-requests-tbody').innerHTML = [
+    { name:'هشام محمد الرشيد', id:'446103464', course:'هال 492', prereq:'هال 490', prereqDone:true, recBadge:'success', rec:'أهل للتسجيل' },
+    { name:'حمد فيصل الراجحي', id:'446107896', course:'عال 311', prereq:'عال 212', prereqDone:true, recBadge:'success', rec:'أهل للتسجيل' },
+    { name:'أحمد محمد العتيبي', id:'441102345', course:'هال 316', prereq:'هال 212', prereqDone:false, recBadge:'danger', rec:'المتطلب غير مكتمل' }
+  ].map(r => `<tr>
+    <td><strong>${r.name}</strong><br><small style="color:var(--gray-500);font-family:var(--mono);">${r.id}</small></td>
+    <td><span class="badge badge-info">${r.course}</span></td>
+    <td style="font-family:var(--mono);font-size:12px;">${r.prereq}</td>
+    <td>${r.prereqDone ? '<span class="badge badge-success">✓ مكتمل</span>' : '<span class="badge badge-danger">✗ ناقص</span>'}</td>
+    <td><span class="badge badge-${r.recBadge}">${r.rec}</span></td>
+    <td style="display:flex;gap:4px;padding:8px 14px;">
+      <button class="btn btn-sm btn-primary" onclick="showToast('✅ تمت الموافقة على إضافة ${r.course}')">${r.prereqDone ? '✓ موافق' : '⚠️ استثناء'}</button>
+      <button class="btn btn-sm btn-danger" onclick="showToast('تم الرفض')">✗ رفض</button>
+    </td>
+  </tr>`).join('');
+}
+
+function renderInbox() {
+  document.getElementById('inbox-list').innerHTML = INBOX_DATA.map((m, i) => `
+    <div class="inbox-msg-item ${i===0?'active':''}" onclick="openInboxMsg(${i})" id="inbox-item-${i}">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px;">
+        <div class="inbox-msg-from">${m.from.split(' ').slice(0,2).join(' ')}</div>
+        <div class="inbox-msg-time">${m.time}</div>
+      </div>
+      <div class="inbox-msg-subject">${m.subject}</div>
+      <div style="margin-top:4px;">
+        ${m.badge==='danger'?'<span class="badge badge-danger" style="font-size:10px;">عاجل</span>':m.badge==='warning'?'<span class="badge badge-warning" style="font-size:10px;">انتظار</span>':'<span class="badge badge-info" style="font-size:10px;">استفسار</span>'}
+      </div>
+    </div>`).join('');
+  openInboxMsg(0);
+}
+
+function populateSelects() {
+  const opts = STUDENTS.map(s => `<option value="${s.id}">${s.name} · ${s.id}</option>`).join('');
+  ['appt-student-select', 'msg-student-select', 'ai-rec-student'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = '<option value="">اختر الطالب...</option>' + opts;
+  });
+}
+
+// ===================================================
+// STUDENT MODAL
+// ===================================================
+
+function openStudentModal(studentId) {
+  const s = STUDENTS.find(x => x.id === studentId);
+  if (!s) return;
+
+  const initials = s.name.split(' ').slice(0,2).map(w=>w[0]).join('');
+  const gpaClass = s.gpa >= 3.5 ? 'gpa-high' : s.gpa >= 2.0 ? 'gpa-med' : 'gpa-low';
+  const blocked = Object.entries(s.courseStatuses).filter(([code,status]) => status==='failed' && PREREQS[code]);
+
+  // AI Summary
+  let aiSummary;
+  if (s.risk === 'great') {
+    aiSummary = `يُظهر الطالب أداءً أكاديمياً متميزاً بمعدل (${s.gpa.toFixed(2)}) مع انتظام تام في الحضور (${s.absence}%). مساره الدراسي يسير وفق الخطة المعتمدة دون عوائق. يُوصى بتوجيهه نحو فرص التميز كالبحث العلمي أو مسابقات الهندسة.`;
+  } else if (s.risk === 'ok') {
+    aiSummary = `وضع الطالب الأكاديمي مستقر عموماً (GPA: ${s.gpa.toFixed(2)}). يُنصح بمتابعته دورياً للحفاظ على مستواه وتفادي أي تراجع مفاجئ في المقررات المتقدمة.`;
+  } else if (blocked.length > 0) {
+    const blockedCodes = blocked.map(([code]) => code).join('، ');
+    aiSummary = `⚠️ رصد النظام تعثراً في متطلبات سابقة محورية أدى إلى حجب المقررات التالية: <strong>${blockedCodes}</strong>. هذا يعني أن الطالب لن يتمكن من التقدم في شجرة الخطة الدراسية حتى يُعيد ويجتاز المقرر المسبب. التوصية: التركيز هذا الفصل على استعادة المتطلب المحجوب قبل أي تسجيل للمقررات المتقدمة.`;
+  } else {
+    aiSummary = `الطالب في وضع يستدعي المتابعة الدقيقة (GPA: ${s.gpa.toFixed(2)}، غياب: ${s.absence}%). يُوصى بجلسة إرشادية فورية لمراجعة الجدول الدراسي ووضع خطة علاجية واضحة للفصل القادم.`;
+  }
+
+  // Build plan grid
+  const planHtml = `<div class="plan-grid">` + STUDY_PLAN.map(block => {
+    const coursesHtml = block.courses.map(c => {
+      const status = s.courseStatuses[c.code] || 'future';
+      const labels = { done:'منجز', failed:'محجوب', current:'حالي', future:'قادم' };
+      return `<div class="plan-course-item plan-${status}" title="${c.name}">${c.code}<br><span style="font-size:8px;opacity:0.8;">[${labels[status]}]</span></div>`;
+    }).join('');
+    return `<div class="plan-level-col">
+      <div class="plan-level-header">المستوى ${block.lvl}</div>
+      ${coursesHtml}
+    </div>`;
+  }).join('') + `</div>`;
+
+  document.getElementById('modal-body').innerHTML = `
+    <div class="student-profile-header">
+      <div class="student-avatar">${initials}</div>
+      <div style="flex:1;">
+        <div class="student-name">${s.name}</div>
+        <div class="student-id">${s.id} · دفعة ${s.batch}</div>
+        <div class="student-meta">
+          <span>📚 المستوى ${s.level}</span>
+          <span>🏛️ هندسة الحاسب والمعلومات</span>
+          <span>🗓️ الفصل الثاني 1447هـ</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mini-stats">
+      <div class="mini-stat">
+        <div class="mini-stat-val ${gpaClass}">${s.gpa.toFixed(2)}</div>
+        <div class="mini-stat-lbl">المعدل التراكمي</div>
+      </div>
+      <div class="mini-stat">
+        <div class="mini-stat-val" style="color:${s.absence>15?'var(--danger)':s.absence>10?'var(--warning)':'var(--success)'};">${s.absence}%</div>
+        <div class="mini-stat-lbl">نسبة الغياب</div>
+      </div>
+      <div class="mini-stat">
+        <div class="mini-stat-val" style="color:${s.warnings>0?'var(--danger)':'var(--success)'};">${s.warnings}</div>
+        <div class="mini-stat-lbl">الإنذارات الأكاديمية</div>
+      </div>
+    </div>
+
+    <div class="ai-box">
+      <div class="ai-box-title">🤖 تحليل ذكي — ملخص الحالة الأكاديمية</div>
+      <div class="ai-box-text">${aiSummary}</div>
+    </div>
+
+    <div class="panel mb16">
+      <div class="panel-header">
+        <div class="panel-title">🗺️ خريطة الخطة الدراسية — التتبع الكامل</div>
+      </div>
+      <div style="padding:14px;">
+        <div class="plan-legend">
+          <div class="plan-legend-item"><div class="plan-legend-dot" style="background:#e8f5e9;border:1px solid #2e7d32;"></div>منجز</div>
+          <div class="plan-legend-item"><div class="plan-legend-dot" style="background:#ffebee;border:1px solid #c62828;"></div>محجوب / راسب</div>
+          <div class="plan-legend-item"><div class="plan-legend-dot" style="background:#e3f2fd;border:1px solid #1565c0;"></div>مسجل حالياً</div>
+          <div class="plan-legend-item"><div class="plan-legend-dot" style="background:#f8f9fa;border:1px solid #e0e0e0;"></div>لم يُسجَّل بعد</div>
+        </div>
+        ${planHtml}
+      </div>
+    </div>
+
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <button class="btn btn-primary" onclick="showToast('✅ تم إرسال دعوة موعد إرشادي لـ${s.name}');closeModal()">📅 جدول جلسة إرشادية</button>
+      <button class="btn btn-danger" onclick="showToast('✅ تم إرسال تنبيه لـ${s.name}')">📨 إرسال تنبيه</button>
+      <button class="btn btn-ghost" onclick="prepareMsg('${s.id}');closeModal();showPage('send-msg')">✉️ رسالة مخصصة</button>
+      <button class="btn btn-ghost" onclick="closeModal()">إغلاق</button>
+    </div>
+  `;
+
+  document.getElementById('student-modal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('student-modal').classList.remove('open');
+}
+
+// ===================================================
+// INBOX
+// ===================================================
+
+let currentMsgIdx = 0;
+function openInboxMsg(idx) {
+  currentMsgIdx = idx;
+  const m = INBOX_DATA[idx];
+  document.querySelectorAll('.inbox-msg-item').forEach((el, i) => {
+    el.classList.toggle('active', i === idx);
+  });
+  document.getElementById('inbox-detail-header').innerHTML = `
+    <div class="inbox-detail-header-name">💬 ${m.from} — ${m.id}</div>
+    <div class="inbox-detail-header-subject">${m.subject}</div>
+  `;
+  let html = `<div style="display:flex;flex-direction:column;gap:10px;">
+    <div class="msg-bubble student">
+      <div>${m.msg}</div>
+      <div class="msg-meta">${m.from} · ${m.time}</div>
+    </div>`;
+  m.replies.forEach(r => {
+    html += `<div class="msg-bubble ${r.from==='advisor'?'advisor':'student'}">
+      <div>${r.text}</div>
+      <div class="msg-meta">${r.from==='advisor'?'د. عبدالعزيز المطيري':'الطالب'} · ${r.time}</div>
+    </div>`;
+  });
+  html += `</div>`;
+  document.getElementById('inbox-messages').innerHTML = html;
+}
+
+function quickReply(text) {
+  document.getElementById('reply-input').value = text;
+}
+
+function sendReply() {
+  const txt = document.getElementById('reply-input').value.trim();
+  if (!txt) return;
+  const m = INBOX_DATA[currentMsgIdx];
+  m.replies.push({ from:'advisor', text: txt, time:'الآن' });
+  openInboxMsg(currentMsgIdx);
+  document.getElementById('reply-input').value = '';
+  showToast('✅ تم إرسال الرد');
+}
+
+// ===================================================
+// MESSAGING
+// ===================================================
+
+function applyTemplate() {
+  const type = document.getElementById('msg-template-type').value;
+  if (type && TEMPLATES[type]) {
+    document.getElementById('msg-subject').value = TEMPLATES[type].subject;
+    document.getElementById('msg-body').value = TEMPLATES[type].body;
+  }
+}
+
+function quickApplyTemplate(type) {
+  if (TEMPLATES[type]) {
+    document.getElementById('msg-template-type').value = type;
+    document.getElementById('msg-subject').value = TEMPLATES[type].subject;
+    document.getElementById('msg-body').value = TEMPLATES[type].body;
+    showToast('✅ تم تطبيق القالب');
+  }
+}
+
+function doSendMsg() {
+  const body = document.getElementById('msg-body').value;
+  if (!body) { showToast('⚠️ يرجى كتابة نص الرسالة', true); return; }
+  showToast('✅ تم الإرسال بنجاح عبر البريد الجامعي');
+  document.getElementById('msg-subject').value = '';
+  document.getElementById('msg-body').value = '';
+}
+
+function prepareMsg(studentId) {
+  const el = document.getElementById('msg-student-select');
+  if (el) el.value = studentId;
+}
+
+function toggleMsgTarget(type, tabId) {
+  ['single','group','all'].forEach(t => {
+    document.getElementById('msg-target-'+t).style.display = t===type ? 'block' : 'none';
+  });
+  document.querySelectorAll('[id^="msg-tab-"]').forEach(el => el.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+}
+
+function sendBulkAlert() {
+  showToast('🚨 تم إرسال تنبيهات لجميع الحالات الحرجة (' + STUDENTS.filter(s=>s.risk==='danger').length + ' طلاب)');
+}
+
+// ===================================================
+// AI RECOMMENDATION
+// ===================================================
+
+function showAIRec() {
+  const id = document.getElementById('ai-rec-student').value;
+  if (!id) { showToast('⚠️ يرجى اختيار الطالب', true); return; }
+  const s = STUDENTS.find(x => x.id === id);
+  if (!s) return;
+  const blocked = Object.entries(s.courseStatuses).filter(([code,status]) => status==='failed' && PREREQS[code]).map(([code])=>code);
+  let recHtml;
+  if (s.risk === 'great') {
+    recHtml = `<div class="ai-box"><div class="ai-box-title">🤖 توصية AI — ${s.name}</div><div class="ai-box-text">الطالب في وضع ممتاز (GPA: ${s.gpa.toFixed(2)}). يُوصى بتسجيل الحد الأقصى من المقررات في المستوى التالي والاستفادة من الخطة المتقدمة. لا توجد قيود على التسجيل.</div></div>`;
+  } else if (blocked.length > 0) {
+    recHtml = `<div class="ai-box"><div class="ai-box-title">🤖 توصية AI — ${s.name}</div><div class="ai-box-text">⛔ لا يُسمح بالتقدم في: <strong>${blocked.join('، ')}</strong> بسبب متطلب سابق محجوب. الأولوية القصوى: إعادة المقرر المسبب للمشكلة هذا الفصل قبل أي تسجيل متقدم.</div></div>`;
+  } else if (s.risk === 'danger' || s.risk === 'warn') {
+    recHtml = `<div class="ai-box"><div class="ai-box-title">🤖 توصية AI — ${s.name}</div><div class="ai-box-text">يُوصى بتخفيف الحمل الدراسي إلى 3–4 مقررات فقط الفصل القادم والتركيز على رفع المعدل (حالياً ${s.gpa.toFixed(2)}). تجنّب تسجيل أكثر من مادة من كل مجموعة دفعة واحدة.</div></div>`;
+  } else {
+    recHtml = `<div class="ai-box"><div class="ai-box-title">🤖 توصية AI — ${s.name}</div><div class="ai-box-text">الطالب مستقر (GPA: ${s.gpa.toFixed(2)}). يمكنه تسجيل المقررات الطبيعية للمستوى ${s.level + 1} بدون قيود. يُنصح بمراجعة دورية كل فصل.</div></div>`;
+  }
+  document.getElementById('ai-rec-output').style.display = 'block';
+  document.getElementById('ai-rec-output').innerHTML = recHtml;
+}
+
+// ===================================================
+// NAVIGATION & TABS
+// ===================================================
+
+const PAGE_TITLES = {
+  dashboard:    ['لوحة التحكم', 'الرئيسية'],
+  students:     ['قائمة طلاب الإرشاد', 'إدارة الطلاب'],
+  alerts:       ['التنبيهات الحرجة', 'إدارة الطلاب'],
+  appointments: ['المواعيد وجلسات الإرشاد', 'الأدوات'],
+  registration: ['الحذف والتسجيل', 'الأدوات'],
+  'send-msg':   ['إرسال للطلاب', 'الأدوات'],
+  inbox:        ['الرسائل الواردة', 'الأدوات']
+};
+
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + pageId).classList.add('active');
+  document.querySelectorAll('.ksu-nav-link').forEach(n => {
+    n.classList.toggle('active', n.getAttribute('onclick')?.includes("'"+pageId+"'"));
+  });
+  document.querySelectorAll('.sidebar-item').forEach(n => {
+    n.classList.toggle('active', n.getAttribute('onclick')?.includes("'"+pageId+"'"));
+  });
+  const info = PAGE_TITLES[pageId] || [pageId, ''];
+  document.getElementById('breadcrumb-current').textContent = info[0];
+}
+
+function switchTab2(panelId, tabId) {
+  const allPanels = ['today-appts','week-appts','pending-appts','new-appt-tab'];
+  const allTabs   = ['tab-today','tab-week','tab-pending','tab-new-appt'];
+  allPanels.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.remove('active');
+  });
+  allTabs.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.remove('active');
+  });
+  document.getElementById(panelId)?.classList.add('active');
+  document.getElementById(tabId)?.classList.add('active');
+}
+
+function switchTabReg(panelId, tabId) {
+  const allPanels = ['reg-delete','reg-add','reg-plan','reg-ai'];
+  const allTabs   = ['reg-tab-delete','reg-tab-add','reg-tab-plan','reg-tab-ai'];
+  allPanels.forEach(id => document.getElementById(id)?.classList.remove('active'));
+  allTabs.forEach(id => document.getElementById(id)?.classList.remove('active'));
+  document.getElementById(panelId)?.classList.add('active');
+  document.getElementById(tabId)?.classList.add('active');
+}
+
+// ===================================================
+// CHATBOT
+// ===================================================
+
+function toggleChatbot() {
+  document.getElementById('chatbot-window').classList.toggle('open');
+}
+
+function askBot() {
+  const input = document.getElementById('chat-input');
+  const txt = input.value.trim();
+  if (!txt) return;
+  const body = document.getElementById('chat-body');
+  body.insertAdjacentHTML('beforeend', `<div class="chat-bubble user">${txt}</div>`);
+  input.value = '';
+
+  const found = CHATBOT_KB.find(item => item.keys.some(k => txt.includes(k)));
+  const answer = found ? found.ans : 'عذراً، لم أجد إجابة مطابقة في قاعدة بيانات اللوائح. يمكنك البحث بكلمات مثل: (غياب، حرمان، غش، تظلم، حذف، إضافة، إنذار، تخرج).';
+
+  setTimeout(() => {
+    body.insertAdjacentHTML('beforeend', `<div class="chat-bubble bot">${answer}</div>`);
+    body.scrollTop = body.scrollHeight;
+  }, 350);
+}
+
+// ===================================================
+// UTILS
+// ===================================================
+
+function showToast(msg, isError = false) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast' + (isError ? ' error' : '');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// ===================================================
+// SEARCH & FILTER
+// ===================================================
+
+let currentFilter = { query:'', risk:'', level:'' };
+function applyFilters() {
+  let list = STUDENTS;
+  if (currentFilter.query) list = list.filter(s => s.name.includes(currentFilter.query) || s.id.includes(currentFilter.query));
+  if (currentFilter.risk)  list = list.filter(s => s.risk === currentFilter.risk);
+  if (currentFilter.level) list = list.filter(s => s.level === parseInt(currentFilter.level));
+  renderStudentsTable(list);
+}
+function searchStudents(q)  { currentFilter.query = q;     applyFilters(); }
+function filterByRisk(r)    { currentFilter.risk  = r;     applyFilters(); }
+function filterByLevel(l)   { currentFilter.level = l;     applyFilters(); }
+
+// ===================================================
+// INIT
+// ===================================================
+
+buildStudents();
+renderDashboard();
+renderStudentsTable(STUDENTS);
+renderAlerts();
+renderAppointments();
+renderGeneralPlan();
+renderRegistrationRequests();
+renderInbox();
+populateSelects();
+
+document.getElementById('student-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+document.getElementById('chat-input').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') askBot();
+});
+</script>
+</body>
+</html>
